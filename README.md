@@ -1,6 +1,6 @@
 # Full Stack Web Development MERN Interview Preparation - Theoretical Notes
 
-![MERN Stack](images/mern_stack.png)
+![MERN Stack](https://www.notion.so/image/https%3A%2F%2Fbinaryinformatics.com%2Fwp-content%2Fuploads%2F2022%2F09%2FMERN-Stack-Development-and-Consulting-Services.jpg?id=c1fdfe23-3928-46af-b7ee-8307ff1a762b&table=collection&spaceId=86eb8a4e-fa71-4a98-8d4a-262348b044a3&width=2000&userId=d5f70d23-6b0a-4aeb-a5fa-325504e6d396&cache=v2)
 
 Welcome to the Full Stack Web Development MERN (MongoDB, Express.js, React, Node.js) Interview Preparation Theoretical Notes repository for freshers! This collection of notes is designed to help you solidify your understanding of the MERN stack concepts and prepare effectively for your upcoming interviews. Whether you're new to web development or looking to refresh your knowledge, these notes will serve as a valuable resource.
 
