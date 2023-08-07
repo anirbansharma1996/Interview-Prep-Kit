@@ -1,0 +1,277 @@
+____________________________________________________________________________________________________________________________________________
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::: Node | Express | MongoDB  :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+____________________________________________________________________________________________________________________________________________
+
+                                                      ||||||||||| Node |||||||||||   
+                                                    
+                                  [ Node LINK] (https://www.interviewbit.com/node-js-interview-questions/)                                                
+--------------------------------------------------------------------------------------------------------------------------------------------
+____________________________________________________________________________________________________________________________________________
+
+                                                      ||||||||||| Express |||||||||||   
+                                                    
+                               [ Express LINK] (https://www.javatpoint.com/expressjs-interview-questions)                                                
+--------------------------------------------------------------------------------------------------------------------------------------------
+____________________________________________________________________________________________________________________________________________
+
+                                                      ||||||||||| MongoDB |||||||||||   
+                                                    
+                                    [ MongoDB LINK] (https://www.interviewbit.com/mongodb-interview-questions/)                                                
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                                 MOCK-10
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                     1.What is the difference between readFile and readFileSync.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+fs.readFile() and fs.readFileSync() are both methods from the fs (file system) module in Node.js, but they operate in slightly different 
+ways.
+
+fs.readFile() is asynchronous, which means that the function returns immediately and the file is read in the background. Once the file 
+has been read, a callback function is executed with the contents of the file as its argument. This method is useful when working with 
+large files or when you don't want your program to block while the file is read.
+
+fs.readFileSync(), on the other hand, is synchronous, which means that the function waits until the file has been read. 
+Once the file has been read, the contents are returned and the program continues to execute. This method is useful when working with 
+small files or when the order of execution is important.
+
+In short, fs.readFileSync() reads the file and blocks the execution of the program until the file is completely read. On the other hand, 
+fs.readFile() reads the file asynchronously, i.e. non-blocking and it doesn't block the program execution.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                  2.How to create a web server without express? Write some basic Routes.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+You can create a web server without using the Express.js framework in Node.js by using the built-in http module. Here's an example of 
+how you might create a simple web server that listens on port 3000 and responds with "Hello World" when a client makes a request to the
+ root URL:
+
+Copy code
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  if (req.url === '/') {
+    res.write('Hello World');
+    res.end();
+  }
+});
+
+server.listen(3000);
+This creates a server that listens on port 3000, and when a client makes a request to the server, the callback function is called with
+ the request and response objects. Inside the callback function, you can check the req.url property to determine the URL that the client 
+ is requesting, and then use the res object to send a response to the client.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                        3.What is he difference between common JS and EJS module?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+CommonJS and EJS (Embedded JavaScript) are two different things, but they are often used in different contexts.
+
+CommonJS is a specification for how JavaScript modules should be structured and loaded. It is a standard for writing modular JavaScript, 
+and it is the format used by default in Node.js. CommonJS modules export an object, and the functions and variables inside that object 
+can be imported by other modules.
+
+On the other hand, EJS (Embedded JavaScript) is a template engine for JavaScript. It allows you to embed JavaScript code within HTML
+ templates, and it is commonly used for server-side rendering in Node.js web applications. EJS allows you to include variables, loops,
+  and other logic within your HTML templates, which makes it easy to dynamically generate HTML content on the server side.
+
+In summary, CommonJS is a module system for JavaScript, which allows to split your code into reusable modules, while EJS is a templating 
+engine that allows you to embed JS code in HTML.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                         4. **What is JWT and what we can achieve with that?**
+-----------------------------------------------------------------------------------------------------------------------------------------------
+JSON Web Token (JWT) is a JSON-based open standard for creating access tokens that assert a series of claims. It is often used to 
+authenticate users and share information securely between systems. JWTs are self-contained, meaning that they contain all the necessary 
+information to authenticate the user, and they can be easily passed around in an HTTP header or in the URL. With JWT, it is possible to 
+achieve stateless authentication, meaning that the server does not need to keep track of the token, and it can also be used for 
+authorization, by including user's roles or permissions in the token.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                              5. **What should we do with the password of a user before storing it into DB?**
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Before storing a user's password into a database, it is recommended to hash the password using a one-way hashing algorithm such as
+ bcrypt, scrypt, or Argon2. This will ensure that even if the database is compromised, the attacker will not be able to obtain the 
+ original passwords. It is also recommended to use a unique salt for each password, which will make it more difficult to use precomputed 
+ tables to crack the password hashes.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                                      6. What is File stream?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+A file stream is a way to read or write data to a file in a streaming manner. Instead of reading the entire file into memory at once, 
+a file stream allows you to read or write data in small chunks, which can be more efficient when working with large files. In Node.js,
+ the fs module provides methods for creating file streams, such as fs.createReadStream() and fs.createWriteStream().
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                      7. What are middlewares, and how they can help us?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Middlewares are functions that are executed in a specific order before the final request handler function. They can be used to perform a
+ variety of tasks such as logging, authentication, and validation. They can also modify the request and response objects before they are 
+ passed to the final request handler. In Node.js, middlewares are commonly used in web frameworks like Express.js. They can help in 
+ adding functionality to your application without adding complexity to your main request handling code.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                              8.How can we take inputs from terminal?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+In Node.js, you can use the readline module to take inputs from the terminal. The readline module provides an interface for reading data 
+from a Readable stream (such as process.stdin) one line at a time. Here's an example of how you might use the readline module to take
+ input from the terminal:
+
+//code
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('What is your name? ', (name) => {
+  console.log(`Hello, ${name}!`);
+  rl.close();
+});
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                             9.How many types of modules are there in node?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+In Node.js, there are two types of modules:
+Built-in modules: These are modules that are included in the Node.js runtime. Examples include the http and fs modules.
+Third-party modules: These are modules that are created by other developers and are typically installed using npm (Node Package Manager).
+ Examples include the Express.js and Mongoose modules.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                  10. What is the difference between authentication and authorization?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Authentication is the process of verifying the identity of a user or system, often based on a set of credentials such as a username and 
+password. Authorization, on the other hand, is the process of determining if the authenticated user or system has access to a specific 
+resource or action. Authentication is the first step towards securing a system and it is needed to check who is trying to access a 
+resource and authorization is the process of checking whether that authenticated user is allowed to access
+----------------------------------------------------------------------------------------------------------------------------------------------
+                                                11.Explain in brief what is node js?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to run JavaScript on the server side, 
+enabling the creation of server-side applications with JavaScript.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                                  12.How is node js non-blocking?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Node.js is non-blocking because it uses an event-driven, non-blocking I/O model. This means that instead of waiting for a task to 
+complete before moving on to the next one, Node.js can handle multiple tasks simultaneously by using callbacks or events.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                                       13.What is throughput?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Throughput refers to the number of tasks that can be completed in a given amount of time.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                             14.How is Node js having high IO throughput?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Node.js has high IO throughput because it uses a non-blocking I/O model, which allows it to handle many requests simultaneously without 
+waiting for each request to complete. This is particularly useful for IO-bound and high-concurrency tasks.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                                  15.What are CPU intensive tasks?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+CPU intensive tasks are tasks that require a lot of computational power, such as image processing or encryption.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                        16.How can you end up blocking your main thread in node.js?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+You can end up blocking your main thread in Node.js by performing synchronous, blocking operations, such as reading from the file system or 
+waiting for a response from a blocking API.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                                      17.What is the event loop?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+The event loop is a mechanism in Node.js that handles asynchronous code execution. It checks the message queue for new messages 
+(i.e. events) and processes them one at a time.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                                18.What are different phases in event loop?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+The different phases in the event loop are: timers, I/O callbacks, idle, prepare, poll, and check.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                                      19.What is process.tick?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+process.tick() is a method that allows you to schedule a callback function to be executed on the next iteration of the event loop.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                            20.When can process.tick starve your event loop?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+The event loop can be starved if there are too many callbacks scheduled using process.tick() and not enough time to execute them all before 
+the next iteration of the event loop.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                       21.What is the difference between setTimeout and setInterval?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+setTimeout and setInterval are both methods for scheduling a function to be executed at a later time, but setTimeout will execute the 
+function once after a certain amount of time, while setInterval will execute the function repeatedly at a certain interval.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                 22.How can you make a network request with http module from the backend?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+You can make a network request with the http module from the backend using the http.get() or http.request() methods.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                                  23.How can you create your own events?
+-----------------------------------------------------------------------------------------------------------------------------------------------
+You can create your own events in Node.js by using the EventEmitter class, which allows you to create custom events and attach listeners to 
+them.
+------------------------------------------------------------------------------------------------------------------------------------------------
+                                                          24.What are clusters?
+------------------------------------------------------------------------------------------------------------------------------------------------
+Clusters are a way to create multiple worker processes for a Node.js application, with each process sharing the same port. This allows for 
+better performance and scalability, as each process can handle a separate request.
+------------------------------------------------------------------------------------------------------------------------------------------------
+                                     25.How does your Node.js application handle scale? Elaborate
+------------------------------------------------------------------------------------------------------------------------------------------------
+To handle scale in a Node.js application, developers can use techniques such as clustering, load balancing, and horizontal scaling.
+Clustering allows for multiple processes to handle incoming requests, load balancing distributes requests among multiple servers,
+and horizontal scaling involves adding more machines to handle increased traffic.
+------------------------------------------------------------------------------------------------------------------------------------------------
+                                       27.What are CORS? How do you configure them? Why do you need them?
+------------------------------------------------------------------------------------------------------------------------------------------------
+CORS (Cross-Origin Resource Sharing) is a mechanism that allows a web page from one domain to make requests to a different domain. It is 
+used to prevent a malicious site from executing a request on a different site. To configure CORS, developers can use the cors middleware 
+package or configure headers on the server side.
+------------------------------------------------------------------------------------------------------------------------------------------------
+                                                       28.What is rate limiting?
+------------------------------------------------------------------------------------------------------------------------------------------------
+Rate limiting is a technique used to control the rate at which a user or IP address can make requests to a server. It is used to prevent
+overloading the server and to protect against denial-of-service (DoS) attacks.
+------------------------------------------------------------------------------------------------------------------------------------------------
+                                                 29.How does middlewares work in express?
+------------------------------------------------------------------------------------------------------------------------------------------------
+In express, middlewares are functions that are executed before the final request handler. They can modify the request and response objects, 
+and can also end the request-response cycle or call the next middleware in the stack.
+------------------------------------------------------------------------------------------------------------------------------------------------
+                                        30.What is the difference between Encryption and Hashing?
+------------------------------------------------------------------------------------------------------------------------------------------------
+Encryption is the process of converting plaintext into ciphertext, which is unreadable without a decryption key. Hashing, on the other hand, 
+is a one-way process that converts plaintext into a fixed-length string of characters, called a hash.
+------------------------------------------------------------------------------------------------------------------------------------------------
+                                              31.What is the difference between HTTPs and HTTP?
+------------------------------------------------------------------------------------------------------------------------------------------------
+HTTPS (Hypertext Transfer Protocol Secure) is an extension of HTTP that uses SSL or TLS to encrypt communication between the client and 
+the server. It is more secure than HTTP because it prevents eavesdropping and tampering of the data being transmitted.
+------------------------------------------------------------------------------------------------------------------------------------------------
+32.What is TLS?
+------------------------------------------------------------------------------------------------------------------------------------------------
+TLS (Transport Layer Security) is a security protocol that provides communication security over the Internet. It is the successor to
+ SSL (Secure Sockets Layer) and is widely used to secure communication between web browsers and servers, email, and other types of network
+  communication.
+------------------------------------------------------------------------------------------------------------------------------------------------
+32.What is AES?
+------------------------------------------------------------------------------------------------------------------------------------------------
+AES (Advanced Encryption Standard) is a widely used symmetric encryption algorithm that uses a fixed-length key to encrypt and decrypt data. 
+It is considered to be very secure and is used in a variety of applications such as banking and government communications.
+------------------------------------------------------------------------------------------------------------------------------------------------
+33.What is JWT Token? Why do we need to use JWT? What are some pros and cons?
+------------------------------------------------------------------------------------------------------------------------------------------------
+JWT (JSON Web Token) is a compact, URL-safe means of representing claims to be transferred between two parties. 
+JWT allows for the transmission of claims in a secure and compact format, and it is used to authenticate users and transmit information about
+the user. JWT is used to transmit user claims from the server to the client, and it can be sent via a request header, query parameter, 
+or in the body of a request. Pros of JWT are it's small, self-contained and can be easily transmitted via HTTP header. Cons include it's not 
+encrypted and can be tampered with.
+------------------------------------------------------------------------------------------------------------------------------------------------
+34.What is salting? Where do we store salt?
+------------------------------------------------------------------------------------------------------------------------------------------------
+Salting is the process of adding random data to a password before it is hashed. This makes it more difficult for an attacker to use 
+precomputed tables of hashed passwords to crack the password. Salts are typically stored in the same database as the hashed password.
+------------------------------------------------------------------------------------------------------------------------------------------------
+35.What is the difference between authorisation and Authentication?
+------------------------------------------------------------------------------------------------------------------------------------------------
+Authentication is the process of verifying the identity of a user, typically through the use of a username and password. Authorization is 
+the process of determining what actions a user is allowed to perform once their identity has been verified.
+------------------------------------------------------------------------------------------------------------------------------------------------
+36.What is the difference between JS on the browser and node?
+------------------------------------------------------------------------------------------------------------------------------------------------
+JS on the browser and Node.js are both implementations of JavaScript, but they have some differences. JS on the browser is used to create 
+client-side scripts that run in the browser, while Node.js is used to create server-side scripts that run on the server. Node.js has a 
+built-in module system, and its environment provides extra functionality for working with the file system, networking, and other server-side 
+tasks.
+------------------------------------------------------------------------------------------------------------------------------------------------
+37.What is V8?
+------------------------------------------------------------------------------------------------------------------------------------------------
+V8 is an open-source JavaScript engine developed by Google. It is written in C++ and is used to execute JavaScript code. V8 is used in Google 
+Chrome and Node.js, among other projects. It includes a powerful JIT (Just-In-Time) compiler that can improve the performance of JavaScript 
+code by compiling it to machine code.
+------------------------------------------------------------------------------------------------------------------------------------------------
+

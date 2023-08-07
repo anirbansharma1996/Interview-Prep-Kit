@@ -1,0 +1,100 @@
+-------------------------------------------------------------------------------------------------------------------------------------------
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::FULL-STACL WEB DEVELOPER ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+                                  [LINK] https://www.interviewbit.com/full-stack-developer-interview-questions/
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                What is the role of a Full Stack Developer?
+--------------------------------------------------------------------------------------------------------------------------------------------
+A Full Stack Developer is responsible for developing both the front-end and back-end portions of a web application.They work on both the 
+client-side and server-side components, and have a strong understanding of how the different pieces of a web application fit together.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                        What experience do you have with HTML, CSS, and JavaScript?
+--------------------------------------------------------------------------------------------------------------------------------------------
+I have an understanding of HTML, CSS, and JavaScript, as they are the core technologies used for building web applications. I can write 
+code in these languages, create responsive designs using CSS, and develop dynamic,interactive user interfaces with JavaScript.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                   What front-end frameworks have you used (e.g., React, Angular, Vue)?
+--------------------------------------------------------------------------------------------------------------------------------------------
+I have knowledge of popular front-end frameworks such as React, Angular, and Vue. I can understand the concepts behind these frameworks 
+and can write code using their APIs.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                              What back-end frameworks have you used (e.g., Express, Ruby on Rails, Django)?
+--------------------------------------------------------------------------------------------------------------------------------------------
+I have knowledge of back-end frameworks such as Express, Ruby on Rails, and Django. I understand the concepts of these frameworks and 
+can write code using their APIs.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                 What databases have you worked with (e.g., MySQL, MongoDB, PostgreSQL)?
+--------------------------------------------------------------------------------------------------------------------------------------------
+I have experience working with databases such as MySQL, MongoDB, and PostgreSQL. I understand the concepts of relational and non-relational 
+databases and can write code to interact with these databases.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                   How do you handle version control in your projects (e.g., Git)?
+--------------------------------------------------------------------------------------------------------------------------------------------
+I have experience using version control systems like Git. I understand the concepts of version control and can use Git to manage code 
+changes and collaborate with other developers.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                               What is your experience with RESTful API design and implementation?
+--------------------------------------------------------------------------------------------------------------------------------------------
+I have knowledge of RESTful API design and implementation. I understand the principles of REST and can design and implement APIs that
+ adhere to these principles.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                            How do you handle security in your projects?
+--------------------------------------------------------------------------------------------------------------------------------------------
+I understand the importance of security in web applications and have knowledge of security concepts such as authentication, authorization,
+and encryption. I can write code to implement security measures and can follow best practices to ensure the security of the application.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                        Can you explain the Model-View-Controller (MVC) pattern?
+--------------------------------------------------------------------------------------------------------------------------------------------
+The Model-View-Controller (MVC) is a design pattern used in software engineering to separate the concerns of an application into three 
+components: the Model, the View, and the Controller. The Model represents the data and business logic, the View is responsible for 
+displaying the data, and the Controller handles user input and updates the Model and View as needed.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                 What is your experience with Agile methodologies (e.g., Scrum, Kanban)?
+--------------------------------------------------------------------------------------------------------------------------------------------
+I have knowledge of Agile methodologies such as Scrum and Kanban. I understand the principles of Agile and can work in teams that follow 
+Agile methodologies.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                How do you ensure the performance and scalability of your applications?
+--------------------------------------------------------------------------------------------------------------------------------------------
+I understand the importance of performance and scalability in web applications. I can write code that is optimized for performance and 
+can design applications that can scale to handle increasing amounts of traffic and data.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                          Can you explain how to implement OAuth 2.0 for authentication and authorization?
+--------------------------------------------------------------------------------------------------------------------------------------------
+OAuth 2.0 is an open-standard for authorization that provides a secure way for applications to access resources on
+behalf of a user. To implement OAuth 2.0, an application must register with a provider (such as Google, Facebook, or Twitter)
+to receive an OAuth client ID and secret. The provider will use these credentials to identify the application and secure communication
+between the application and the provider. The user must then grant permission for the application to access their resources, after
+which the application can use the client ID, secret, and user's authorization grant to obtain an access token, which can be used to 
+make authorized API requests on behalf of the user.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                           Can you explain how to implement OAuth 2.0 for authentication and authorization?
+ --------------------------------------------------------------------------------------------------------------------------------------------
+OAuth 2.0 is an open-standard for authorization that provides a secure way for applications to access resources
+on behalf of a user. To implement OAuth 2.0, an application must register with a provider (such as Google or
+Facebook) to receive an OAuth client ID and secret. The user then grants permission for the application to access
+their resources. The application can then use the client ID and secret, along with a user's authorization grant,
+to obtain an access token, which can be used to make authorized API requests on behalf of the user.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                             How do you test and debug your applications?
+--------------------------------------------------------------------------------------------------------------------------------------------
+I test and debug my applications using a combination of automated tests and manual testing. I write unit tests 
+and integration tests to validate the behavior of individual components, and I perform manual testing to validate
+the overall behavior of the application. I use debugging tools, such as breakpoints and logs, to identify and fix
+issues in the code.
+--------------------------------------------------------------------------------------------------------------------------------------------
+        Can you discuss a project you have worked on that required integration with financial systems or payment gateways?
+--------------------------------------------------------------------------------------------------------------------------------------------
+For example, I worked on a project for an e-commerce platform that required integration with a payment gateway. 
+The platform allowed users to purchase products using various payment methods, such as credit card, PayPal, and 
+Apple Pay. I implemented the integration with the payment gateway API to handle transactions, validate payment 
+information, and process refunds. I also implemented security measures, such as encrypting sensitive information
+ and using tokens to secure the communication between the platform and the payment gateway.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                        How do you stay current with the latest technology trends in Full Stack Development?
+--------------------------------------------------------------------------------------------------------------------------------------------
+I stay current with the latest technology trends in Full Stack Development by regularly reading industry blogs,
+attending conferences and workshops, and experimenting with new technologies. I also participate in online
+communities and engage with other developers to share knowledge and stay up-to-date on the latest developments
+in the field.

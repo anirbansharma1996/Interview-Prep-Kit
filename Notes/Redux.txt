@@ -1,0 +1,869 @@
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                    ||||||||||| REDUX |||||||||||   
+                                                    
+                                   [LINK] (https://www.interviewbit.com/redux-interview-questions/)                                                
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                     [1]  What is redux?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Redux is a JavaScript library that is commonly used with React to manage the state of an application. It provides a way to 
+centralize the management of an application's state, making it easier to understand and predict the flow of data in an application.
+
+The main concepts in Redux are:
+
+The store: a JavaScript object that holds the current state of the application.
+The state: the data that represents the current state of the application.
+The actions: JavaScript objects that describe the changes that should be made to the state.
+The reducers: JavaScript functions that take the current state and an action as input, and return a new state.
+The basic flow of data in a Redux application is as follows:
+
+An action is dispatched, which describes a change that should be made to the state.
+The store sends the action to all of the reducers.
+The reducers update the state based on the action, and return the new state.
+The store updates its state with the new state returned by the reducers.
+The React components that are connected to the store re-render with the new state.
+The main benefits of using Redux are:
+
+Centralizing the management of state makes it easier to understand and predict the flow of data in an application.
+The state is read-only, which means that the only way to change it is by dispatching actions. This makes it easy to track and debug
+ changes to the state.
+The reducers are pure functions, which means that they don't have side effects, making them predictable and easy to test.
+It's important to note that Redux is not limited to React, it can be used with other libraries and frameworks, but it's mostly used 
+with React.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                       [2]  What are actions?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In Redux, actions are JavaScript objects that describe the changes that should be made to the state of the application. They are the
+ only way to change the state of the application and are dispatched to the store by the application's components.
+
+An action typically has two properties: a type property and a payload property. The type property describes the type of action being
+ performed, and the payload property contains any additional data needed to perform the action.
+
+Here's an example of a simple action:
+
+Copy code
+{
+    type: 'ADD_TODO',
+    payload: 'Learn Redux'
+}
+In this example, the type property is set to ADD_TODO, and the payload property is set to 'Learn Redux'. This action describes the
+ intent to add a new todo item with the text 'Learn Redux'.
+
+Actions are typically created by action creators, which are functions that return an action object. Here's an example of an action
+ creator for the above action:
+
+Copy code
+function addTodo(text) {
+    return {
+        type: 'ADD_TODO',
+        payload: text
+    }
+}
+In this example, the addTodo function takes a single argument text and returns an action object with a type of ADD_TODO and a payload 
+of text.
+
+It's important to note that actions should be plain objects and should not have any side effects (like API calls or DOM updates). 
+They should also be serializable so that they can be logged, stored and replaye
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                     [3]  What are action creators?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In Redux, action creators are functions that create and return actions. They are used to generate the action objects that describe 
+the changes that should be made to the state of the application.
+An action creator typically takes some arguments, such as data that is needed to perform the action, and returns an action object.
+Here's an example of an action creator for a simple "add todo" action:
+
+Copy code
+function addTodo(text) {
+    return {
+        type: 'ADD_TODO',
+        payload: text
+    }
+}
+In this example, the addTodo function takes a single argument text and returns an action object with a type of ADD_TODO and a payload 
+of text.
+Once the action object is returned by the action creator, it can be dispatched to the store by calling store.dispatch(addTodo(text))
+It's important to note that action creators should be pure functions, meaning that they should not have any side effects (like API 
+calls or DOM updates), and should only return an action object.
+It's also important to note that action creators are not required in Redux, you can create and dispatch actions directly if you 
+want to. However, using action creators makes it easier to test your application, as well as make your code more readable and easier
+ to understand.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                     [6]  What are pure functions?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In programming, a pure function is a function that has the following characteristics:
+
+It always returns the same output for the same input.
+It doesn't have any side effects.
+It doesn't rely on or modify any variables or state outside of its scope.
+A pure function is also called a deterministic function because it always returns the same output for the same input values, 
+regardless of when or how many times it's called.
+
+Here's an example of a simple pure function:
+
+Copy code
+function add(a, b) {
+    return a + b;
+}
+In this example, the add function takes two arguments a and b and returns the sum of both. The function is pure as it always returns 
+the same output for the same input, it doesn't have any side effects and it doesn't rely or modify any variables or state outside of 
+its scope.
+
+Here's an example of a non-pure function:
+
+Copy code
+let x = 0;
+
+function add() {
+    x++;
+    return x;
+}
+In this example, the add function increments a global variable x and returns its value. This function is non-pure as it's output 
+changes depending on when and how many times it's called, it modifies a variable outside of its scope, and it has side effects 
+(modifying a variable).
+
+Pure functions are beneficial in several ways, such as they are easy to test, reason about, and understand. They also make the code 
+more predictable and easier to debug, and make it easier to reason about the order of execution. In Redux, reducers are expected to 
+be pure functions, as they take the current state and an action and return a new state
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                [7]  Why do we spread the state or return a new object in reducers?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In Redux, reducers are pure functions that take the current state and an action, and return a new state. They are the only way to 
+update the state of the application.
+
+It's important to note that the state in Redux is immutable, meaning that the state should not be modified directly, but rather a new
+ state should be created and returned by the reducer.
+
+One way to create a new state object is to use the spread operator ... to create a new object with the properties of the current state
+ and the new properties that should be updated.
+
+Here's an example of a simple reducer that updates a todo item:
+
+Copy code
+function todos(state = [], action) {
+    switch (action.type) {
+        case 'UPDATE_TODO':
+            return state.map(todo => {
+                if (todo.id === action.payload.id) {
+                    return { ...todo, ...action.payload.updates }
+                }
+                return todo
+            })
+        default:
+            return state
+    }
+}
+In this example, the todos reducer takes the current state and an action as input. When the action type is UPDATE_TODO, the reducer 
+maps over the state, and for the todo item whose id matches the id in the payload, it returns a new object which is created by 
+spreading the properties of the current todo object and the updates from payload.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                   [8]  Why do dispatchers take only actions which are objects
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In Redux, the dispatch function is the mechanism used to send actions to the store. It is typically a method of the store object that
+ takes an action object as its argument.
+
+Dispatchers take only actions which are objects because actions should be plain JavaScript objects and should not have any side 
+effects (like API calls or DOM updates). They should also be serializable so that they can be logged, stored, and replayed.
+
+Objects are a convenient way to package all the information needed to describe an action in a single, serializable entity. They 
+allow you to include a type property that describes the type of action being performed, and a payload property that contains any 
+additional data needed to perform the action.
+
+By using objects, actions can be easily logged, stored and replayed. This means that, in case of any issues, you can easily recreate
+ the state of the application by replaying the recorded actions in the same order, making it easier to debug and test your application.
+
+Additionally, by only dispatching plain objects, it makes the code more predictable and easier to understand, since there are no
+ surprises as to what the dispatcher will do, it will only process plain javascript objects.
+
+It's important to note that the dispatch function is the only way to change the state in a Redux application, and it's a mechanism
+ to tell the store that an action is occurring, and the action must be a plain javascript object.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                         [9]  What are types in actions why do we need them?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In Redux, actions are plain JavaScript objects that describe the changes that should be made to the state of the application. 
+They are the only way to change the state of the application and are dispatched to the store by the application's components.
+
+One of the properties of an action object is the type property, which is used to describe the type of action being performed. 
+The type property is a string that identifies the action, and it should be unique across the application.
+
+The type property is used by the reducers to determine how to update the state based on the action. In a reducer, you'll typically
+ use a switch statement or if-else statements to check the type property of the action, and update the state accordingly.
+
+Here's an example of a simple reducer that updates a todo item:
+
+Copy code
+function todos(state = [], action) {
+    switch (action.type) {
+        case 'UPDATE_TODO':
+            // update the todo item
+            return updatedState
+        case 'DELETE_TODO':
+            // delete the todo item
+            return updatedState
+        default:
+            return state
+    }
+}
+In this example, the todos reducer takes the current state and an action as input. When the action type is UPDATE_TODO, 
+the reducer updates the todo item in the state and when the action type is DELETE_TODO, it deletes the todo item in the state.
+
+By using type property in actions, it makes it clear as to what the action is doing and it also makes it easier to reason about and 
+debug the code, as you can see what each action does by just looking at the type. Also, it helps to organize the code and make it more 
+readable.
+
+It's important to note that the type property should be a string, and it should be unique across the application. It's also a best
+ practice to keep the type property in a separate file, for example, actionTypes.js, to avoid typos and inconsistencies.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                   [10]  What happens when you pass a function into a dispatcher?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In Redux, the dispatch function is used to send actions to the store. It is typically a method of the store object that takes an 
+action object as its argument.
+
+When you pass a function into a dispatcher, the function is not executed, instead it is ignored. The reason is that, the dispatch 
+function expects an action object, which is a plain JavaScript object that describes the changes that should be made to the state 
+of the application. A function is not a plain JavaScript object, it's an executable code, and passing a function into the dispatcher 
+would not make sense in this context.
+
+If you want to perform some logic or async operations, such as making an API call, before you dispatch an action, you should use 
+middleware such as redux-thunk.
+
+Redux-thunk is a middleware that allows you to write action creators that return a function instead of an action. This function can
+ then be used to perform the async logic, like making an API call, and then dispatch the action object.
+
+Here's an example of how you might use redux-thunk to handle an API call:
+
+Copy code
+// action creator
+export function fetchUsers() {
+    return function(dispatch) {
+        axios.get('https://jsonplaceholder.typicode.com/users')
+            .then(response => {
+                dispatch({type: 'FETCH_USERS_SUCCESS', payload: response.data});
+            })
+            .catch(error => {
+                dispatch({type: 'FETCH_USERS_FAILURE', payload: error});
+            });
+    }
+}
+In this example, the fetchUsers is an action creator that returns a function that performs the API call and dispatches an action 
+object with the type FETCH_USERS_SUCCESS or FETCH_USERS_FAILURE accordingly.
+
+It's important to note that to use thunk, you need to add the redux-thunk middleware to your store, like this:
+
+Copy code
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+const store = createStore(reducer, applyMiddleware(thunk));
+So, passing a function into a dispatcher without any middleware such as redux-thunk will not work and the function will be ignored.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                    [11] Where do dispatchers come from?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In Redux, a dispatcher is a mechanism used to send actions to the store. The dispatch function is typically a method of the store 
+object that takes an action object as its argument.
+
+In a Redux application, the store is created using the createStore function from the redux library. The createStore function takes the
+ root reducer as its argument, and it returns an object that contains the dispatch method.
+
+Here's an example of how you might create a store in a Redux application:
+
+Copy code
+import { createStore } from 'redux'
+import rootReducer from './reducers'
+
+const store = createStore(rootReducer)
+In this example, the createStore function is called with the rootReducer as its argument, and it returns an object that has the dispatch
+ method, which can be used to send actions to the store.
+
+It's also important to note that you can use the useDispatch hook from the react-redux library to get the dispatch function in your 
+functional components so that you can dispatch actions.
+
+Copy code
+import { useDispatch } from 'react-redux'
+
+function TodoForm({ addTodo }) {
+  const dispatch = useDispatch()
+  const [text, setText] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(addTodo(text))
+    setText('')
+  }
+  //...
+}
+In this example, the TodoForm component uses the useDispatch hook from the react-redux library to get the dispatch function, which 
+can be used to send the addTodo action to the store.
+
+So in summary, dispatchers come from the store object, which is created using the createStore function from the redux library, and it 
+can also be accessed via the useDispatch hook from the react-redux library.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                [12]  What are the properties of a store?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In Redux, a store is an object that holds the state of the application and provides a way to update the state. A store has the 
+following properties:
+
+getState(): This method returns the current state of the application.
+
+dispatch(action): This method is used to send actions to the store. It takes an action object as its argument and dispatches it to 
+the root reducer.
+
+subscribe(listener): This method is used to register a callback function that will be called every time an action is dispatched. 
+The listener function is called with the current state as its argument.
+
+replaceReducer(nextReducer): This method is used to replace the root reducer with a new one. This can be useful for hot-reloading 
+or for dynamic code splitting of the reducer.
+
+[Symbol.observable](): This method is used to create an observable that can be used with the observability API.
+
+It's important to note that the store is created using the createStore function from the redux library. The createStore function 
+takes the root reducer as its argument and returns the store object that has the properties mentioned above.
+
+Here's an example of how you might create a store in a Redux application:
+
+Copy code
+import { createStore } from 'redux'
+import rootReducer from './reducers'
+
+const store = createStore(rootReducer)
+In this example, the createStore function is called with the rootReducer as its argument, and it returns the store object that has
+ the getState, dispatch, subscribe, replaceReducer and [Symbol.observable] methods.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                 [13]  Can you create your own redux and create the following methods?
+                                          dispatchers | constructor | getState | subscribe
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Yes, it is possible to create your own Redux implementation. Here's an example of how you might create a custom store with dispatchers,
+ a constructor, getState and subscribe methods:
+
+Copy code
+class Store {
+    constructor(reducer, initialState) {
+        this.reducer = reducer;
+        this.state = initialState;
+        this.listeners = [];
+    }
+
+    getState() {
+        return this.state;
+    }
+
+    dispatch(action) {
+        this.state = this.reducer(this.state, action);
+        this.listeners.forEach(listener => listener());
+    }
+
+    subscribe(listener) {
+        this.listeners.push(listener);
+        return () => {
+            this.listeners = this.listeners.filter(l => l !== listener);
+        }
+    }
+}
+In this example, the Store class has a constructor that takes a reducer function and an initialState as its arguments. 
+The constructor also initializes an empty array of listeners.
+
+The getState method returns the current state of the application.
+
+The dispatch method takes an action as an argument and passes it to the reducer function along with the current state. The returned
+ value becomes the new state, and then the method calls each listener function registered using the subscribe method.
+
+The subscribe method takes a listener function as its argument and pushes it to the listeners array. It also returns a function that
+ when called will remove the listener from the array.
+
+It's important to note that this is just a basic implementation of a custom store and it may not have all the features and 
+functionalities of the official Redux store.
+
+You can use this custom store to create your own redux implementation, but in the real-world scenario, it's recommend to use the 
+official redux implementation as it is widely used and has a lot of features and functionalities that are battle-tested and proven.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                [14]  Explain redux to a 5 year old?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Redux is a way to keep track of things in a computer game or program, like keeping score or remembering what level you are on. 
+Imagine you have a box that stores all the important information for the game, like the score and the level. This box is called the
+ "store."
+
+When you play the game and do something like getting a point or moving to the next level, you need to tell the store to update the 
+score or level. To do this, you send a message to the store called an "action." The action tells the store what you did, like 
+"I got a point" or "I moved to the next level."
+
+The store also has a special helper called a "reducer" that knows how to change the information in the store based on the actions 
+it receives. The reducer is like a recipe book that tells the store how to update the information.
+
+For example, the store might have a recipe that says, "if the action is 'I got a point' then add one to the score." The reducer follows 
+this recipe and updates the score in the store.
+
+Now the store has the updated information, and the game can use it to show you the new score or level on the screen. This is how Redux
+ helps to keep track of things in a computer game or program.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                     [15]  What is the difference between Context API and Redux?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Context API and Redux are both used to manage state in a React application, but they work in different ways.
+
+The Context API is a built-in feature of React that allows you to share state across components without having to pass props down through 
+multiple levels of the 
+component tree. It allows you to create a context object, which can be consumed by any component in the tree.
+
+Redux, on the other hand, is a separate library that is often used in conjunction with React. It provides a centralized store for the 
+state of the application, and it allows you to manage the state using the principles of a predictable state container. With Redux, 
+you define actions and reducers, which describe how the state should change in response to actions.
+
+One key difference between the two is that Context API is a built-in feature of React and it is more simpler to use, it's good for 
+small to medium-sized applications. On the other hand, Redux is a separate library and it is more complex to use but it is more 
+powerful and it is good for large-scale applications.
+
+Another difference is that, with Redux, all the state updates must go through the store, which allows for better control and 
+management of the state updates. However, with Context API, state updates can happen anywhere in the component tree, which can 
+make it more difficult to trace and debug state changes.
+
+So, the choice between using Context API or Redux depends on the size and complexity of your application and the specific 
+requirements of your use case.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                      [16]  What are redux thunks?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Redux Thunk is a middleware for Redux that allows you to write action creators that return a function instead of an action object. 
+This function, called a thunk, can be used to perform asynchronous logic, such as making an API call, before dispatching an action.
+
+A thunk is a function that wraps an expression to delay its evaluation. In the case of Redux, a thunk is a function that wraps an action
+creator and returns a new action creator. The new action creator, when called, will dispatch the original action creator but only after
+performing some async logic, like making an API call.
+
+Here's an example of how you might use Redux Thunk to handle an API call:
+
+Copy code
+// action creator
+export function fetchUsers() {
+    return function(dispatch) {
+        // Dispatching the request action
+        dispatch({type: 'FETCH_USERS_REQUEST'});
+        axios.get('https://jsonplaceholder.typicode.com/users')
+            .then(response => {
+                // Dispatching the success action
+                const users = response.data;
+                dispatch({type: 'FETCH_USERS_SUCCESS', payload: users});
+            })
+            .catch(error => {
+                // Dispatching the failure action
+                const errorMsg = error.message;
+                dispatch({type: 'FETCH_USERS_FAILURE', payload: errorMsg});
+            });
+    }
+}
+In this example, the fetchUsers is an action creator that returns a thunk, which when invoked, performs the API call and dispatches 
+actions with the type FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, or FETCH_USERS_FAILURE accordingly.
+
+It's important to note that to use thunk, you need to add the redux-thunk middleware to your store, like this:
+
+Copy code
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+const store = createStore(reducer, applyMiddleware(thunk));
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                          [17]  Why do we need to use network requests in redux thunks?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+We use network requests (such as API calls) in Redux Thunks because they are often asynchronous, meaning that they don't complete 
+immediately and we need a way to handle the response or any errors that may occur.
+
+Using thunks allows us to handle async logic, like making a network request, in a way that fits in with the overall flow of a 
+Redux application. With thunks, we can dispatch actions that reflect the status of the network request, such as "FETCH_USERS_REQUEST",
+"FETCH_USERS_SUCCESS", and "FETCH_USERS_FAILURE", to update the state of the application accordingly.
+
+This way we can handle the flow of the async request, like handling the loading state, error handling, etc. It also keeps the component
+simple and the network logic in one place, the thunk function, rather than spreading the logic throughout the component tree.
+
+Furthermore, by using thunks, we can handle async logic in a consistent way across the application, rather than having different 
+components handle async logic in different ways, this makes it easy to follow the flow of the request and also maintain the code.
+
+In summary, using Redux thunks for network requests allows us to handle async logic in a way that fits in with the overall flow of a
+Redux application, handle the request status, and maintain a consistent way of handling async logic throughout the application.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                       [18]  What are middlewares?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In Redux, a middleware is a third-party library that sits between the store's dispatch method and the reducer. It is a way to extend 
+the functionality of the store's dispatch method and handle tasks such as logging, crash reporting, performing async operations, 
+and more.
+
+A middleware is a function that takes the store's dispatch function and the getState function as arguments, and returns a new 
+function that can be used to dispatch actions. This new function, called the next, typically does something with the action before 
+or after passing it to the store's dispatch method.
+
+For example, a logging middleware might log the action to the console before it is passed to the store's dispatch method, and an 
+async middleware like redux-thunk allows you to dispatch a function instead of an action, which can contain async logic like making 
+an API call.
+
+Here's an example of how you might use a middleware in your Redux application:
+
+Copy code
+import { createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
+
+const store = createStore(reducer, applyMiddleware(logger));
+In this example, the applyMiddleware function is used to apply the logger middleware to the store. This means that every action 
+that is dispatched will be logged to the console by the logger middleware before it is passed to the store's dispatch method.
+
+It's important to note that middlewares are just another way of extending the functionality of the store and allows for an easier 
+way to handle specific tasks, it is not required to use middlewares to use redux, but it is a useful pattern to handle tasks that 
+are not related to updating the state.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                            [19]  Can you write your own middleware instead of thunks? what do thunks do?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Yes, it is possible to write your own middleware for managing asynchronous actions in a Redux application instead of using thunks. 
+A thunk is a specific kind of middleware that allows for the dispatching of functions in addition to the standard dispatching of objects.
+ These functions can then be used to perform any necessary async logic before dispatching the actual action object.
+
+Thunks are a way to handle side effects in Redux. They are a way to handle async logic in Redux. They are a way to handle async logic
+ in Redux. They are a way to handle async logic in Redux. They are a way to handle async logic in Redux. They are a way to handle async 
+ logic in Redux. They are a way to handle async logic in Redux.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                     [20]  Explain with a diagram how state gets updated with redux?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Redux follows a strict unidirectional data flow, meaning that the state flows in a single direction through the application. 
+The diagram below illustrates this process:
+
+An action, which is an object describing a change that needs to be made to the state, is dispatched by a component or other part
+ of the application.
+
+The action is received by the Redux store, which is responsible for managing the state of the application.
+
+The store then passes the action to all of its reducers. Reducers are pure functions that take the current state and an action as 
+inputs and return a new state.
+
+Each reducer examines the action and modifies the state accordingly. The new state is then returned to the store.
+
+The store updates its state with the new state returned by the reducer.
+
+The new state is passed down to the connected components of the application through props, which causes the components to re-render 
+with the updated state.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                       [21]  What is useSelector?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+useSelector is a hook provided by the react-redux library, which allows a React component to access the Redux store state and 
+re-render when the state changes.
+
+useSelector accepts a selector function as its argument, which is a function that takes the current Redux store state as an input and
+ returns a piece of the state that is needed by the component. The hook then subscribes the component to the Redux store and re-renders
+  the component whenever the returned state value changes.
+
+This allows for more efficient updates because the component only re-renders when the specific piece of state it needs has changed, 
+rather than re-rendering every time any piece of state changes.
+
+For example, you can use useSelector in a component like this:
+
+Copy code
+import { useSelector } from 'react-redux';
+
+function MyComponent() {
+  const user = useSelector(state => state.user);
+
+  return <div>{user.name}</div>;
+}
+Here, useSelector is used to access the user property of the Redux store state, and the component re-renders whenever the user state changes.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                        [22]  What is the compareFn that you pass in a useSelector?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+The compareFn is an optional argument that can be passed to the useSelector hook. It is a function that compares the previous and current
+ state values and returns a Boolean indicating whether the component should re-render or not.
+
+The compareFn receives the previous state and the current state as arguments and should return true if the component should re-render,
+ and false otherwise.
+
+For example, if you want to re-render the component only when the user object has changed, you can pass a compare function like this:
+
+Copy code
+const user = useSelector(state => state.user, (prev, next) => prev.id !== next.id);
+This function compares the previous and current id properties of the user object, and will return true if they are different, causing 
+the component to re-render. If the id property is the same, the component will not re-render.
+
+It's worth noting that by default, useSelector uses a strict equality check (Object.is) to compare the previous and next state, which 
+means that if the state is an object or an array and you mutate it, even if it's the same, the component will re-render. This can be 
+solved by passing a custom compareFn to compare values that are important for the component, or by using useMemo to keep the state from
+ mutating.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                       [23]  What is useDispatch?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+useDispatch is a hook provided by the react-redux library, which allows a React component to dispatch actions to the Redux store.
+
+useDispatch is a hook that returns the dispatch function from the store, which can be used to dispatch an action to the store.
+When an action is dispatched, it is passed to the reducers, which update the state of the store accordingly.
+
+For example, you can use useDispatch in a component like this:
+
+Copy code
+import { useDispatch } from 'react-redux';
+import { addTodo } from './actions';
+
+function AddTodoForm() {
+  const dispatch = useDispatch();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const todo = event.target.elements.todo.value;
+    dispatch(addTodo(todo));
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input name="todo" placeholder="Add Todo" />
+      <button type="submit">Add</button>
+    </form>
+  );
+}
+Here, useDispatch is used to call the dispatch function, which will call the addTodo action creator, passing the todo value as a 
+parameter, and then it will be passed to the store, the store will pass it to the corresponding reducer and the state will be updated.
+
+It's worth noting that useDispatch doesn't need to be used inside a component, you can use it inside a custom hook, utility 
+function or even inside another middleware.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                 [24]  What is the use of Provider?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+The Provider component is a component provided by the react-redux library, which allows your React components to access the Redux store.
+
+The Provider component is used at the root of your React application, and it wraps your entire application. It takes the Redux store 
+as a prop and makes it available to all of the components in your application.
+
+For example, you can use the Provider component like this:
+
+Copy code
+import { Provider } from 'react-redux';
+import store from './store';
+
+function App() {
+  return (
+    <Provider store={store}>
+      <RootComponent />
+    </Provider>
+  );
+}
+Here, the Provider component is wrapping the RootComponent and passing the store as prop. This makes the store available to all the 
+components inside RootComponent and its child components, and they can use the useSelector and useDispatch hooks to access the state 
+and dispatch actions.
+
+It's worth noting that the Provider component is not needed when using the connect HOC, because connect will take care of providing the 
+store to the component, but it's still needed if you want to use the hoo
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                      [25]  what is redux tool kit? How does it make redux better?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Redux Toolkit is a set of tools that simplifies the setup and development process of Redux. It provides a way to configure a new or 
+existing Redux store with a few lines of code, and also includes features that make it easier to manage the state and actions in your 
+application.
+
+Some of the features of Redux Toolkit include:
+
+A createAsyncThunk helper function that simplifies the creation of async thunks.
+A createSlice helper function that makes it easy to create and manage the actions and reducers for a specific slice of the state.
+A configureStore function that sets up the store with the necessary middleware, such as the thunk middleware for handling async actions,
+ and the ability to add custom middleware and enhancers.
+A immer library integration that allows you to write your reducers in a more intuitive and less error-prone way by mutating the state 
+directly instead of creating a new copy.
+A createAsyncThunk that simplify the creation of async thunks.
+By using Redux Toolkit, you can set up a new or existing store in a few lines of code, which eliminates the need to manually configure
+ the store with middleware, enhancers, and other boilerplate. Also, it provides a way to write your reducer, actions and async actions
+  in a more readable and maintainable way.
+
+Overall, Redux Toolkit makes Redux development more efficient, less error-prone and more maintainable by providing a set of powerful 
+tools to handle common use cases that you encounter when developing with Redux.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+                                              [26]  What does Object.freeze() do?
+----------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Object.freeze() is a method in JavaScript that makes an object immutable, meaning its properties cannot be modified or deleted.
+Once an object is frozen, any attempts to add, modify, or delete properties from it will have no effect. The object will remain in 
+its frozen state. This can be useful for ensuring the integrity of an object that should not be modified accidentally or by other code.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+                                            [27] Why is immutability required by Redux ?
+----------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In Redux, the state of the entire application is stored in a single, immutable object. This means that instead of modifying the 
+state directly, new versions of the state are created with the desired changes.
+
+This has several benefits:
+
+It makes it easy to track changes to the state over time, since each new version of the state is a new object.
+It makes it easy to implement undo/redo functionality, since previous versions of the state can be easily accessed.
+It makes it easy to detect when the state has changed, since any comparison between the current state and a previous state will show 
+that they are different objects.
+
+It ensures that the state of the application can't be modified accidentally or by other code, which can help avoid bugs.
+Overall, immutability in Redux helps in easy state management, debugging and in maintaining predictable state.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+                                         [28]  How does Redux use shallow equality checking ?
+----------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In Redux, the store's state is updated by dispatching actions. When an action is dispatched, the store's reducer function is called with
+ the current state and the action as arguments, and it returns a new state.
+
+Shallow equality checking is used to determine whether the new state is the same as the previous state. Specifically, Redux uses the 
+Object.is method for shallow equality checking, which is a more efficient way to compare objects than the === operator.
+
+When the new state and the previous state are the same object, the store will not dispatch a change event and the components will not 
+re-render. This is called as the shallow comparison.
+
+Shallow equality checking is used in Redux to improve performance by preventing unnecessary re-renders of components. It also avoids 
+unnecessary updates, which can be especially useful in large and complex applications.
+
+Additionally, Redux uses the Object.is method for shallow equality checking, as it is more efficient and consistent than the traditional
+ === operator, which has certain edge cases where it behaves differently.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+                                [29] How well does Redux “scale” in terms of performance and architecture ?
+----------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Redux is a predictable state container that can help manage the state of large and complex applications. It allows for a centralized, 
+immutable state and a predictable way of updating the state through reducers, which can make it easier to reason about the state of the
+ application and debug issues.
+
+In terms of performance, Redux can be optimized to work well with large and complex applications by implementing a few best practices:
+
+Use shallow equality checking to prevent unnecessary re-renders
+Avoid unnecessary updates by using immutable data structures
+Use the reselect library for creating memoized selectors to avoid recomputing derived data
+However, as the complexity of the application increases, the number of actions and reducers also increases, which can make it harder to
+ manage and understand the application's state. This can lead to a large number of action types, switch statements and if-else conditions
+  in the reducers.
+
+To mitigate this, one can use the Ducks pattern which groups actions, action types and reducers in a single module and use middleware to
+ handle side-effects. Additionally, one can use the Redux-toolkit which is an official set of opinionated packages that help you write 
+ efficient and maintainable Redux code.
+
+In terms of architecture, if an application is small and simple, then it might be okay to have a single store and one set of reducers to 
+handle the state. However, as the application grows, it may be beneficial to split the state into smaller, more manageable stores and use
+ the redux-saga or redux-thunk for handling async actions.
+
+Overall, Redux is a powerful tool for managing the state of large and complex applications but, as with any tool, it's important to 
+understand its limitations and best practices for using it to avoid performance and architecture issues.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+                                       [30]  How does Redux compare to the React Context API ?
+----------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Redux and the React Context API are both tools for managing the state of a React application, but they have some key differences:
+
+Scope: Redux is a global state management library that allows you to manage the state of your entire application in a centralized, 
+immutable store. The React Context API, on the other hand, is a way to share state between components without passing props down 
+through multiple levels of the component tree. The Context API is more focused on managing state at a local or component level.
+
+Predictability: Because Redux has a centralized store and uses a strict unidirectional data flow, it can make it easier to reason about
+ the state of the application and debug issues. The React Context API, on the other hand, does not enforce a specific pattern for how 
+ state should be updated, which can make it harder to predict how changes to the state will affect the rest of the application.
+
+Performance: Because Redux uses shallow equality checking and immutable data structures, it can be optimized for performance in large
+ and complex applications. The React Context API does not provide these optimization out of the box, however, React.memo and useEffect 
+ hooks can be used for optimization.
+
+Complexity: Redux can be more complex to set up and use than the React Context API, especially for small and simple applications. Redux
+ requires you to set up a store, actions, and reducers, whereas the React Context API can be used with just a few lines of code.
+
+In summary, Redux and the React Context API are both useful tools for managing state in React applications, but they have different
+ scopes and trade-offs. Redux is a global state management library that is well-suited for large and complex applications, while the 
+ React Context API is more focused on managing state at a local or component level.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+                                                    [31] What is webpack ?
+----------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Webpack is a module bundler for JavaScript applications. It is used to take all the different files and dependencies of an application, 
+such as JavaScript, CSS, images, and more, and bundle them into a single file (or a few files) that can be loaded by a web browser.
+
+Webpack processes all the files in the application and builds a dependency graph that shows which files depend on which other files.
+ It then uses this graph to determine the optimal way to bundle the files together.
+
+Webpack also has the ability to process and transform files using loaders, which are plugins that allow you to preprocess files as they 
+are added to the dependency graph. For example, you can use a loader to transpile modern JavaScript code to an older version that is 
+compatible with more browsers, or to process and optimize images.
+
+Additionally, Webpack has a development server that allows you to run your application locally and see changes in real-time as you make
+ them. It also supports hot module replacement, which allows you to update modules in the browser without refreshing the page.
+
+Webpack is a powerful tool that can help you optimize the performance of your application and make the development process more efficient.
+ It is widely used to bundle JavaScript applications, and it is supported by many popular frameworks and libraries, such as React and 
+ Angular.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+                                                      [32] What is treeshaking ?
+----------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Tree shaking is a technique used by modern bundlers like Webpack to eliminate unused code from the final bundled output. The idea 
+behind tree shaking is that not all the code in an application will be used at runtime, so there's no need to include that unused 
+code in the final bundle.
+
+When building the bundle, the bundler starts with the entry point of the application and follows the import statements to build a 
+dependency graph of all the modules used by the application. Once the graph is built, the bundler can analyze which modules are 
+actually used and which are not, and only include the used modules in the final bundle.
+
+Tree shaking can significantly reduce the size of the final bundle and improve the performance of the application by only including 
+the code that is actually used. It can also help to keep the bundle size small and efficient, especially when using large libraries.
+
+It is important to note that tree shaking only works with the ECMAScript 2015 (ES6) module syntax (i.e. import and export) , and not 
+with CommonJS or AMD module systems.
+
+Tree shaking can also be used in combination with other optimization techniques such as code splitting and minification to further 
+improve the performance of the application.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+                                              [33] What are some features of using webpack ?
+----------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Webpack is a powerful and feature-rich module bundler for JavaScript applications. Some of its key features include:
+
+Module bundling: Webpack takes all the different files and dependencies of an application, such as JavaScript, CSS, images, and more, 
+and bundles them into a single file (or a few files) that can be loaded by a web browser.
+
+Loaders: Webpack allows you to use loaders, which are plugins that allow you to preprocess files as they are added to the dependency 
+graph. For example, you can use a loader to transpile modern JavaScript code to an older version that is compatible with more browsers, 
+or to process and optimize images.
+
+Plugins: Webpack has a wide range of plugins available, which can be used to do various tasks like minifying and uglifying the code, 
+code splitting, and more.
+
+Code splitting: Webpack allows you to split your code into smaller chunks, which can be loaded on demand, improving the initial load 
+time of your application.
+
+Hot Module Replacement (HMR): Webpack supports Hot Module Replacement (HMR), which allows you to update modules in the browser without 
+refreshing the page, improving the development experience.
+
+Tree shaking: Webpack uses tree shaking to eliminate unused code from the final bundled output, which can significantly reduce the size 
+of the final bundle and improve the performance of the application.
+
+Source maps: Webpack generates source maps, which allows you to debug your application in the browser as if you were running the 
+un-bundled code, making it easier to find and fix bugs.
+
+DevServer: Webpack comes with a development server that allows you to run your application locally and see changes in real-time as you 
+make them, which can improve the development experience.
+
+These are some of the key features of webpack, and it offers many more options and possibilities that can be used to improve the 
+performance and development experience of your application.
+
+
+

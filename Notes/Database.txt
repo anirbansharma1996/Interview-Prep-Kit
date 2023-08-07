@@ -1,0 +1,248 @@
+-------------------------------------------------------------------------------------------------------------------------------------------
+                        ::::::::::::::::::::::::::::::::::: DATA BASE ::::::::::::::::::::::::::::::::::::::::::
+-------------------------------------------------------------------------------------------------------------------------------------------
+                                      1.What are the different types of SQLdatabases?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Relational databases: The most common type of SQL database, which store data in a series of tables with rows and columns.
+Object-relational databases: A hybrid of relational databases and object-oriented programming, which allow for the storage of 
+complex data structures.
+Hierarchical databases: A type of database that uses a tree-like structure to store data, with each record having one parent and
+ multiple children.
+Graph databases: A type of database that uses graph theory to store and retrieve data, with nodes representing entities and edges 
+representing relationships.
+Document databases: This type of database stores data in the form of documents, such as JSON or XML.
+Time-Series Databases : This type of databases designed to store and retrieve time-series data, which is data that's indexed by time 
+(a datetime or timestamp).
+In-memory databases: These databases store all data in memory, rather than on disk. This allows for faster performance but also higher
+ costs as it needs a lot of memory.
+
+   **(SQL databases are used to store structured data while NoSQL databases like MongoDB are used to save unstructured data. 
+   MongoDB is used to save unstructured data in JSON format. MongoDB does not support advanced analytics and joins like SQL 
+   databases support)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+                                        2.How do you import and export to a database?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+There are several ways to import and export data to and from a database, depending on the type of database and the format of the data. 
+Below are a few common methods:
+SQL Import/Export: Most relational databases, such as MySQL, SQL Server, and PostgreSQL, support the import and export of data using the
+SQL format. You can use the IMPORT or LOAD DATA command to import data, and the EXPORT or SELECT INTO OUTFILE command to export data.
+CSV Import/Export: Comma-separated values (CSV) is a widely supported format for data import and export. Many databases, such as MySQL 
+and PostgreSQL, support import and export of data in CSV format using commands like LOAD DATA INFILE and SELECT INTO OUTFILE.
+BCP Utility: SQL Server also support BCP(Bulk Copy Program) which is command-line tool that enables the import and export of data to and
+ from SQL Server or Azure SQL Database.
+Third-Party Tools: There are also third-party tools, such as pgAdmin for PostgreSQL, that provide a user-friendly interface for 
+importing and exporting data.
+ODBC (Open Database Connectivity) : It is a standard for connecting to different databases, allowing you to import and export data by 
+creating an ODBC connection to the database and then using a spreadsheet application or other tool to read or write the data.
+REST API: Some databases, such as MongoDB, expose a REST API that can be used to import and export data by sending HTTP requests to the
+ API endpoint.
+It really depends on the specific database you are using, and what format your data is in. If you have specific database and format you
+ are working with, please let me know and I will provide more information.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                     3.What is a DBMS?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+A DBMS (Database Management System) is a software system that allows for the creation, maintenance, and management of databases. 
+It provides a way to store and retrieve data in a structured manner, and also allows for the enforcement of constraints and the 
+management of access to the data.
+A DBMS typically includes a variety of tools for creating and managing the database, such as SQL for querying the data, and a user
+ interface for managing the database. Additionally, most DBMSs include built-in security and performance optimization features to 
+ protect and improve the performance of the data stored in the system.
+---------------------------------------------------------------------------------------------------------------------------------------------
+                                                 4.What is RDBMS? How is it different?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+RDBMS stands for Relational Database Management System. It is a type of DBMS (Database Management System) that stores data in the 
+form of tables with rows and columns, and uses a relational model to organize data. This allows for data to be related to other data
+ within the same table or to be related to data in other tables through the use of keys.
+RDBMS use a specific language called SQL(Structured Query Language) which allows you to interact with the database, such as inserting
+, updating, deleting and querying the data.
+The main difference between RDBMS and other types of DBMS is that RDBMS stores data in a structured and organized manner, while other
+ DBMSs may use other models to store data, such as hierarchical, network, or document models.
+Additionally, RDBMSs have a number of features that make them particularly well-suited for certain types of applications, such as:
+Data Integrity: RDBMS ensure integrity of data by using constraints like primary key and foreign key etc.
+Data Consistency: RDBMSs ensure data is consistent by use of transactions and ACID properties.
+Concurrency Control: RDBMSs provide mechanism to handle multiple users accessing the data at the same time.
+Popular examples of RDBMSs include MySQL, SQL Server, Oracle, PostgreSQL, SQLite etc.
+In summary, RDBMS is a type of DBMS that uses a relational model to store data, and SQL to interact with it. It is optimized for 
+handling structured data and provides tools to
+ ensure data integrity, consistency and handling concurrent access.
+---------------------------------------------------------------------------------------------------------------------------------------------
+                                               5.What are primary keys and foreign keys?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In a relational database, a primary key is a field or set of fields that uniquely identifies each record in a table. A primary key is 
+used to enforce data integrity and establish a link between different tables in a relational database.
+A foreign key is a field or set of fields in one table that refers to the primary key of another table. It is used to establish a link
+ between data in two different tables and to enforce referential integrity.
+When a foreign key is defined in a table, it is used to reference the primary key of another table. This creates a link between the 
+two tables, and allows you to create relationships between the data in the tables.
+For example, consider two tables: "customers" and "orders". The "customers" table might have a primary key "customer_id", and the 
+"orders" table might have a foreign key
+ "customer_id" which references the "customer_id" primary key in the "customers" table. This creates a link between the two tables, 
+ indicating that each order is associated with a specific customer.
+Foreign keys have certain properties that help to enforce data integrity such as:
+Referential integrity: It ensures that the value of foreign key always exist in the referenced table's primary key.
+Cascade delete: It helps to automatically delete the related rows from another table when we delete the record from primary key table.
+Primary key and foreign keys play a vital role in RDBMS as it establishes a link between different tables and help to maintain data 
+integrity and consistency.
+-----------------------------------------------------------------------------------------------------------------------------------------
+                                                          6.How do you group by?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In SQL, the GROUP BY clause is used to group rows in a result set based on one or more columns. The GROUP BY clause is typically used
+ in conjunction with aggregate functions such as SUM, COUNT, AVG, MIN, and MAX to group the data based on the values in the specified
+  column(s), and then return a single value for each group.
+The basic syntax for using the GROUP BY clause is as follows:
+//code
+SELECT column1, aggregate_function(column2)
+FROM table_name
+GROUP BY column1;
+
+Where column1 is the column you want to group the data by, aggregate_function is the function you want to apply to the data in column2,
+ such as SUM, COUNT, AVG, MIN, or MAX, and table_name is the name of the table you want to retrieve data from.
+For example, if you have a table called "sales" with columns "product", "quantity", and "price", you can use the following query to
+ group the data by product, and return the total quantity and average price for each product:
+//code
+SELECT product, SUM(quantity), AVG(price)
+FROM sales
+GROUP BY product;
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                               7.What are constraints?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In a relational database, constraints are used to enforce rules on the data in a table and maintain the integrity of the data.
+ There are several types of constraints that can be used in a table, including:
+Primary key: A primary key is a field or set of fields that uniquely identifies each record in a table. A primary key constraint
+ enforces the rule that each value in the primary key field(s) must be unique, and cannot be null.
+Foreign key: A foreign key is a field or set of fields in one table that refers to the primary key of another table. A foreign key 
+constraint enforces the rule that the value of the foreign key must match the value of the primary key in the referenced table, 
+ensuring that the data is consistent and related.
+Unique: A unique constraint enforces the rule that each value in a particular field or set of fields must be unique across the entire
+ table, and cannot be duplicated.
+Check: A check constraint is used to enforce a specific condition on the data, such as a value in a field must be greater than a
+ certain value. It will only allow the data in the table if the condition is true.
+Not null: A not null constraint enforces the rule that a value must be present for a field, and cannot be null.
+Default: A default constraint provides a default value for a field when the data is inserted into the table and no value is provided.
+These constraints can be defined while creating a table or can be added later using ALTER TABLE command. They help maintain data
+ integrity and consistency by enforcing rules on the data in the table, and rejecting any data that does not meet these rules.
+---------------------------------------------------------------------------------------------------------------------------------------------
+                                                       8.How do you create a table?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+To create a table in a relational database, you can use the CREATE TABLE statement. The CREATE TABLE statement is used to create a 
+new table in the database and define its columns and data types.
+The basic syntax for creating a table using CREATE TABLE is:
+//code
+CREATE TABLE table_name (
+    column1 data_type [CONSTRAINT constraint_name] [NOT NULL],
+    column2 data_type [CONSTRAINT constraint_name] [NOT NULL],
+    ....
+    PRIMARY KEY (column1, column2, ...)
+);
+Where table_name is the name of the new table, column1, column2 etc are the names of the columns in the table, data_type is the 
+data type for each column, and constraint_name is the optional name for the constraints.
+For example, to create a new table called "employees" with columns "employee_id" and "name" with data type INT and VARCHAR respectively:
+
+//code
+CREATE TABLE employees (
+    employee_id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    PRIMARY KEY (employee_id)
+);
+This will create a table called "employees" with 2 columns, "employee_id" with data type INT and "name" with data type VARCHAR(255). The
+ PRIMARY KEY is set for employee_id which means that the employee_id will be unique and cannot be NULL for each employee
+It's important to note that depending on the database management system and the size of the table, creating table can be a 
+resource-intensive operation and it's best to test the table creation in a development environment before applying it to the production.
+It's also good practice to define the constraints like primary key, foreign key, unique etc. for the table for data integrity and 
+consistency.
+----------------------------------------------------------------------------------------------------------------------------------------------
+                                                    9.How do you alter a table?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+To alter a table in a relational database, you can use the ALTER TABLE statement. This statement allows you to add, modify or delete
+ columns, as well as change various other table options such as renaming the table or changing its storage engine.
+The basic syntax for adding a column to a table using ALTER TABLE is:
+//code
+ALTER TABLE table_name
+ADD column_name data_type [CONSTRAINT constraint_name] [NOT NULL];
+
+Where table_name is the name of the table you want to modify, column_name is the name of the new column, data_type is the data type
+ of the new column, and constraint_name is the optional name for the constraints.
+For example, to add a new column called "status" with data type VARCHAR to the table "orders":
+//code
+ALTER TABLE orders
+ADD status VARCHAR(20);
+
+Similar syntax can be used to modify and delete columns.
+You can use MODIFY instead of ADD and DROP instead of ADD in the statement.
+Additionally, you can use RENAME to change the name of the table, CHANGE to rename a column or change its data type and SET or DROP
+ to modify or delete table options.
+It's important to note that depending on the database management system and the size of the table, altering a table can be a 
+resource-intensive operation and can lock the table for the time the alter is being done. Also, this operation can affect to the 
+data integrity if not done properly, so It's important to test the alter in a development environment and make sure it's correct 
+before applying to production.
+----------------------------------------------------------------------------------------------------------------------------------------------
+                                                  10.How do you delete a table?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+To delete a table in a relational database, you can use the DROP TABLE statement. The basic syntax for this statement is:
+//code
+DROP TABLE table_name;
+
+Where table_name is the name of the table you want to delete.
+For example, to delete a table called "orders":
+//code
+DROP TABLE orders;
+
+It's important to note that this statement will delete the table and all its data permanently and cannot be undone. So it's important
+ to be cautious when using this command and make sure you have a backup of the table or data if it's important.
+Also, depending on the database management system, you may need to add additional keywords like CASCADE or RESTRICT to delete the table,
+ if the table is referenced by other objects like Foreign keys. It's always a good practice to check the database documentation for
+  the specific syntax.
+Additionally, If you are using a programming language to interact with the database you may use the driver or ORM libraries appropriate
+ function to delete the table.
+------------------------------------------------------------------------------------------------------------------------------------------
+                                                     11.What are joins?
+--------------------------------------------------------------------------------------------------------------------------------------------                                                      
+ANS.
+In a relational database, a join operation combines rows from two or more tables based on a related column between them. A join allows
+ you to retrieve data from multiple tables as if they were a single table.
+A join is performed based on a related column between the tables, which is typically a primary key in one table and a foreign key in
+ the other table. These related columns are used to match the data between the tables, so that the rows from the tables that have 
+ matching values in the related columns are combined into a single row in the result set.
+A join can be used to retrieve data from multiple tables in a single query, which can be useful when you need to retrieve data that is
+ spread across multiple tables.
+For example, consider two tables: "customers" and "orders". A join between these two tables on the "customer_id" column would combine
+ the rows from the "customers" table with the rows from the "orders" table that have matching "customer_id" values. This would allow
+  you to retrieve information about customers and their associated orders in a single query.
+There are many types of joins like inner join, left join, right join, full outer join etc. Each of them has specific use cases based
+ on the relationship between tables and the data required. They can be used to return matched and non-matched records.
+------------------------------------------------------------------------------------------------------------------------------------------
+                                            12.What are the different types of joins there?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In a relational database, a join operation combines rows from two or more tables based on a related column between them. There are 
+several types of joins that can be used to retrieve data from multiple tables, including:
+Inner join: This type of join returns only the rows that have matching values in both tables. It only returns the rows where the
+ join condition is true.
+Left join or Left outer join: This type of join returns all rows from the left table and the matching rows from the right table.
+ If there is no match, the right side will contain null.
+Right join or Right outer join: This type of join returns all rows from the right table and the matching rows from the left table.
+ If there is no match, the left side will contain null.
+Full outer join: This type of join returns all rows from both tables, including any non-matching rows. If there is no match, the
+ columns from the non-matching side will contain null.
+Cross join: Also known as Cartesian Product, it will return all possible combinations of rows from both tables. It can generate 
+large number of rows, so use it with caution.
+Self join: This is when a table is joined to itself, creating a relationship between the data in the table.
+Each type of join can be used in different situations to retrieve the desired data. Inner join is the most commonly used join, 
+but the other types of joins can be useful in certain situations, such as when you need to retrieve non-matching data or create a 
+Cartesian product.
+It is important to use the right type of join in the right situation and use join conditions that will perform well to avoid 
+performance issues, and return the results set in a timely manner.
+
+
+

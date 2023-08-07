@@ -1,0 +1,922 @@
+____________________________________________________________________________________________________________________________________________
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: HTML CSS  :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+____________________________________________________________________________________________________________________________________________
+                                                    ||||||||||| HTML |||||||||||                                                     
+                                   [LINK] (https://www.interviewbit.com/html-interview-questions)  
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                           -[1].How do you add CSS to an HTML webpage?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Inline styles: You can add a style attribute to individual HTML elements, and use it to specify CSS styles.
+//code
+<p style="color: blue;">This text is blue.</p>
+...
+This method is useful for adding small styles to specific elements, but can be difficult to maintain if you have many elements or 
+complex styles.
+
+Internal stylesheet: You can add a <style> element to the <head> section of an HTML document, and use it to specify CSS styles 
+for the entire page.
+//code
+<head>
+    <style>
+        p {
+            color: blue;
+        }
+    </style>
+</head>
+...
+This method is useful for adding styles to multiple elements or an entire webpage, but can be less flexible if you have multiple 
+webpages or want to reuse styles.
+
+External stylesheet: You can create a separate CSS file, and link to it from your HTML document using the link element in the <head> 
+section.
+//code
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+This method is the most flexible and easy to maintain, it allows you to reuse styles in multiple webpages and also make changes to 
+your entire website in one file.
+
+It's important to note that all the above methods will apply the CSS styles to the HTML elements, and the styles will be applied in
+ the order they are loaded, so the last loaded will override previous styles with the same selectors and properties
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                  -[3].What does HTML stand for?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+HTML stands for Hypertext Markup Language. It is a markup language used to create the structure and layout of web pages. 
+HTML uses a system of tags and attributes to define the different parts of a webpage such as headings, paragraphs, images, links,
+ and many other types of content.
+HTML documents are made up of elements, which are represented by tags. Each element has an opening tag and a closing tag, 
+with the content of the element placed in between.
+//code
+<p>This is a paragraph.</p>
+In this example, the <p> tag is the opening tag and the </p> tag is the closing tag. The text "This is a paragraph" is the content
+ of the element.
+HTML also uses attributes to provide additional information about an element. For example, the href attribute is used in the <a> 
+(anchor) tag to specify the URL of the linked webpage.
+//code
+<a href="https://www.example.com">Visit Example Website</a>
+It's important to note that HTML is used to define the structure and layout of web pages, while CSS is used to control the presentation 
+of those pages. Therefore, HTML creates the basic building blocks of a webpage and CSS is used to apply styles and design to it.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                -[4].What are the features of HTML5?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+HTML5 is the latest version of the HTML language and has several new features that were not present in previous versions. 
+Some of the most notable features of HTML5 include:
+
+Semantic elements: HTML5 includes new semantic elements, such as <header>, <nav>, <section>, <article>, <aside>, <figure> 
+and <footer>, which give more meaning to the content of a webpage and make it easier for search engines and screen readers to 
+understand the structure of a webpage.
+
+Audio and video support: HTML5 includes built-in support for audio and video playback, which means that you no longer need to rely on
+third-party plugins like Flash to play multimedia on a webpage.
+
+Canvas: The <canvas> element in HTML5 allows you to create and manipulate graphics on a webpage using JavaScript.
+
+Offline caching: HTML5 allows webpages to be cached in a user's browser, allowing them to be accessed offline.
+
+Local storage: HTML5 allows web applications to store data locally on the user's device, which allows the application to load faster
+and work offline.
+
+Geolocation: The HTML5 Geolocation API allows web applications to access the user's location and display it on a map or use it for
+other purposes.
+
+Improved form controls: HTML5 introduces new form controls such as date pickers, search fields, and sliders, which make it easier 
+to create forms and validate user input.
+
+Improved web worker support: HTML5 includes support for web workers, which allows web pages to run JavaScript code in the background
+ without freezing the user interface.
+
+Flexible Box Layout: HTML5 provides more control over page layout with the new CSS display property: flex.
+
+HTML5 is designed to be backward-compatible with previous versions of HTML, and is designed to work well with other web technologies
+such as CSS and JavaScript.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                      -[5].What are the different types of storage in HTML5? 
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+HTML5 provides several different types of storage options that web applications can use to store data locally on a user's device.
+Some of the most common types of storage include:
+
+1.Local storage: Local storage is a key-value store that allows web applications to store data locally on a user's device. The data
+     stored in local storage is persistent and remains even after the browser is closed. Local storage has a maximum size of around 
+     5-10MB, depending on the browser.
+2.Session storage: Session storage is similar to local storage, but the data stored in session storage is only available for the 
+      duration of a user's browsing session. Once the user closes the browser, the data stored in session storage is deleted.
+3.IndexedDB: IndexedDB is a more powerful and flexible storage option that allows web applications to store large amounts of structured
+     data. It provides a database-like interface for storing, querying and retrieving data, which makes it useful for offline web apps
+     or apps that need to store large amounts of data.
+4.Cookies: Cookies are small text files that are stored on a user's device by a web server. They are typically used to store 
+     user-specific information such as login credentials or preferences.
+5.Cache API : Cache API is a storage option that allows web applications to store files and resources, such as images, scripts, 
+     and stylesheets, locally on a user's device. This allows the application to load the resources quickly and work offline.
+     It's worth noting that different types of storage options are suited for different use cases and have different advantages 
+     and limitations. For example, cookies have a small maximum size, and may not be suitable for storing large amounts of data, 
+     whereas Local storage and IndexedDB are more powerful and flexible storage options that can store large amounts of data.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                        -[6].What do the following mean in html ? <section>|<article>|<footer>|<nav>|<aside>
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In HTML5, the <section>, <article>, <footer>, <nav>, and <aside> elements are semantic elements that give more meaning to the content
+of a webpage and make it easier for search engines and screen readers to understand the structure of a webpage. These tags are 
+block-level elements that are typically used to divide a webpage into different sections and provide a way to organize content in a 
+logical and meaningful way.
+
+<section>: The <section> element is used to group content together that has a similar theme or purpose. It defines a section of a 
+web page, such as a chapter, a subsection, or a block of content.
+
+<article>: The <article> element is used to identify a self-contained piece of content on a webpage. For example, a blog post,
+a news story, a forum post, etc.
+
+<footer>: The <footer> element is used to define the footer of a webpage, typically containing information such as the author, 
+copyright information, and links to related content.
+
+<nav>: The <nav> element is used to identify a section of a webpage that contains navigation links. It is typically used to create
+navigation menus and other navigation-related content.
+
+<aside>: The <aside> element is used to identify content that is related to the main content of the webpage, but not essential 
+to understanding it. For example, it can be used to mark up a sidebar with related links, or a pull-quote from the main text.
+
+Using these tags in your HTML document can make it more meaningful and accessible to users and search engines. It's also worth 
+noting that these elements are not only useful for accessibility but they also give more flexibility while styling the webpage 
+and can be useful when it comes to responsive design.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                 -[7].What are forms in HTML?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In HTML, forms are used to create a way for users to interact with a webpage by submitting data, such as text input, radio buttons, 
+checkboxes, and file uploads. They are used to collect data from users and to send that data to a web server for processing.
+The basic structure of a form in HTML is an opening <form> tag and a closing </form> tag, with various form elements, such as text
+ inputs, checkboxes, and submit buttons, placed between them.
+Here is an example of a simple form with a text input and a submit button:
+//code
+<form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <input type="submit" value="Submit">
+</form>
+In this example, the <form> element creates a container for the form elements. The <label> element is used to create a text label
+for the form input, and the <input> element is used to create the form control (a text input in this case)
+There are many types of form controls that you can use in HTML, such as text inputs, checkboxes, radio buttons, select lists, and
+more. Each type of form control has a unique set of attributes and properties that you can use to control its behavior and appearance.
+Forms are often used in combination with a server-side script or a JavaScript to validate the data entered by the user before sending
+it to the server and also to handle the form data on the client-side before sending it to the server.
+It's also worth noting that forms can be used to interact with webpages in many ways that go beyond simply submitting data to a server.
+For example, a form can be used to create dynamic interactions with a webpage, such as updating the page's content without reloading it,
+or to trigger actions based on the data entered by the user.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                -[8].What are event listeners in HTML?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In HTML, event listeners are a way to add behavior to elements on a webpage by listening for events, such as a button click or a form 
+submission, and then running a function in response. Event listeners can be used to create interactive and dynamic web pages that 
+respond to user actions and input.
+Event listeners are typically added to an element using JavaScript or a JavaScript library such as jQuery. The basic syntax for adding 
+an event listener is as follows:
+//code
+element.addEventListener(event, function);
+Where element is the element you want to add the event listener to, event is the type of event you want to listen for (e.g., "click", 
+"submit", "mouseover"), and function is the function that you want to run when the event occurs.
+For example, you can add a click event listener to a button element that runs a function when the button is clicked:
+//code
+<button id="myButton">Click me</button>
+<script>
+   var button = document.getElementById("myButton");
+   button.addEventListener("click", function() {
+      console.log("Button clicked!");
+   });
+</script>
+Event listeners can be added to many different types of elements such as input fields, form elements, and even body element and many 
+different types of events such as click, mouseover, keydown, load and so on.
+Event Listeners can also be removed from elements when they are no longer needed. The method to remove the event listener is 
+removeEventListener(event,function).
+Event listeners are powerful tool that allows you to make your webpages interactive and responsive to user actions. 
+They can also be used to create dynamic effects and animations, validate forms, and create other types of interactions.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                   -[9].what is onload event?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In HTML, the onload event is a JavaScript event that is triggered when a web page or an image has finished loading. It is typically 
+used to perform tasks such as initializing variables, setting up event listeners, and running functions when the page loads.
+The onload event can be added to the <body> or <img> element of an HTML document, and is commonly used in the following way:
+//code
+<body onload="initialize()">
+...
+</body>
+In the above example, the function initialize() will be called when the page has finished loading. The function can contain any 
+JavaScript code that you want to run when the page loads, such as setting up event listeners, initializing variables, or manipulating 
+the page's content.
+You can also add the event listener for onload event in javascript
+//code
+window.onload = function(){
+  //JavaScript code here
+}
+This event is also used to make sure that some elements on the page are ready such as images, other scripts or the DOM.
+It's worth noting that if there are multiple onload events on the page, they will be executed in the order they appear on the page
+.Also, be mindful that if you have many elements on the page that need to load, the onload event may fire later than expected and make 
+some elements unavailable when you are trying to manipulate them.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                    -[10].What is scroll event?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In HTML, the scroll event is a JavaScript event that is triggered when a user scrolls an element on a webpage. This event is commonly 
+used to perform tasks such as updating the position of fixed elements, loading new content, or running animations as the user scrolls.
+The scroll event can be added to any element that is scrollable, such as the <body>, <div>, or <section> element, and is commonly used
+in the following way:
+//code
+var element = document.getElementById("scrollable-element");
+element.addEventListener("scroll", function() {
+  // JavaScript code here
+});
+In the example above, an event listener is added to an element with id "scrollable-element" that listens for the scroll event and runs 
+the function. The function can contain any JavaScript code that you want to run when the event occurs, such as updating the position of
+fixed elements, loading new content, or running animations.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                 -[11].How do you use Geo Location API?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+The Geolocation API in HTML5 allows web applications to access the user's location and use it for various purposes, such as displaying 
+the user's location on a map or providing location-based services. To use the Geolocation API, you need to create a JavaScript function 
+that gets the user's location using the navigator.geolocation object.
+Here is an example of a function that gets the user's location and displays it in an alert box:
+//code
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+function showPosition(position) {
+    alert("Latitude: " + position.coords.latitude + 
+    " Longitude: " + position.coords.longitude);
+}
+In the example above, the getLocation function checks if the browser supports the Geolocation API using the navigator.geolocation 
+object. If it does, it calls the navigator.geolocation.getCurrentPosition() method, passing it the showPosition function as an argument.
+ This function will be called with the user's position as an argument.
+The showPosition function takes the position object as an argument which is passed from navigator.geolocation.getCurrentPosition() 
+method, it then extracts latitude and longitude from the position object and shows it in an alert box.
+It's worth noting that using the Geolocation API is subject to the user's permission. Before accessing the user's location, 
+the browser will prompt the user to grant permission. If the user denies permission, the navigator.geolocation.getCurrentPosition()
+--------------------------------------------------------------------------------------------------------------------------------------------
+          - [12].How do you know if a user is offline or not? What API does the browser provide for that?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+The browser provides the Navigator.onLine property and the window.ononline and window.onoffline events to check if a user is online
+ or offline.
+The Navigator.onLine property returns a Boolean value indicating whether the browser is in online or offline mode. The property 
+returns true if the browser is online and false if it is offline. You can use this property to check the user's current connection
+ status:
+//code
+if (navigator.onLine) {
+  // Browser is online
+} else {
+  // Browser is offline
+}
+The window.ononline and window.onoffline events are fired when the browser goes online or offline, respectively. You can use these 
+events to run code when the user's connection status changes:
+//code
+window.addEventListener('online', function() {
+  console.log('You are online');
+});
+window.addEventListener('offline', function() {
+  console.log('You are offline');
+});
+It's worth noting that the Navigator.onLine property and the window.ononline and window.onoffline events are part of the HTML5 web 
+standard and are supported by most modern browsers, but not all. And be mindful that it is not guaranteed to be accurate for all the 
+devices and the network types.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                          - [13].How do you use Video and Audio tags?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+The HTML <video> and <audio> tags are used to embed video and audio content into an HTML document. These tags provide a way to play 
+multimedia content natively in a browser without the need for additional plug-ins or software.
+The basic syntax for using the <video> tag is as follows:
+//code
+<video src="path/to/video.mp4" controls>
+    Your browser does not support the video tag.
+</video>
+The src attribute is used to specify the location of the video file, and the controls attribute is used to display the video
+player controls.
+The <audio> tag is similar to the <video> tag but it is used for audio files and it can be like:
+//code
+<audio src="path/to/audio.mp3" controls>
+    Your browser does not support the audio tag.
+</audio>
+Both tags have many attributes and properties to customize the player like autoplay, loop, poster, preload and so on.
+For example, you can use the autoplay attribute to start playing the video automatically when the page loads, the loop attribute 
+to repeat the video and the poster attribute to display an image until the video is played.
+//code
+<video src="path/to/video.mp4" controls autoplay loop poster="path/to/poster.jpg">
+    Your browser does not support the video tag.
+</video>
+It's worth noting that different browsers support different video and audio formats, so it is important to provide multiple 
+sources for the video or audio using the <source> tag. This allows the browser to use the first compatible format it can play.
+//code
+<video controls>
+   <source src="path/to/video.mp4" type="video/mp4">
+   <source src="path/to/video.ogg" type="video/ogg">
+   Your browser does not support the video tag.
+</video>
+By using the <audio> and <video> tags you can natively add multimedia content to your web pages and make them more engaging 
+and interactive. It's also worth noting
+--------------------------------------------------------------------------------------------------------------------------------------------
+                            - [14]  <!DOCTYPE html>
+                                    <html lang="en">
+                                 <head>
+                                       <meta charset="UTF-8">
+                                       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                                       <meta name="viewport" content="width=device-width, initial-scale =1.0">
+                                       <title>Document</title>
+                                 </head>
+                                 <body>
+                                 </body>
+                                 </html>
+
+                                          - what does above boilerplate code means?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+The code you provided is an example of an HTML document structure.
+The <!DOCTYPE> declaration tells the browser that this document is an HTML document.
+The <html> element is the root element of an HTML page, and all other elements must be descendants of this element.
+<html lang="en"> attribute indicates the language of the document, in this case it's english.
+The <head> element contains meta information about the document, such as the document's title, character encoding, and viewport settings. 
+It also can include links to stylesheets and scripts.
+<meta charset="UTF-8"> specifies the character encoding for the document, UTF-8 is a widely used character encoding that supports most of
+ the characters and symbols in the world.
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> is to ensure that the website is rendered in the latest and most compatible version
+ of Internet Explorer.
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> it specifies the viewport (the visible area of the web page) and 
+the initial scale of the page when it's first loaded.
+The <title> element defines the title of the document, the title appears on the browser's title bar or in the tab of the page.
+The <body> element contains the visible content of the HTML document, such as text, images, links, and other interactive elements.
+So, this is a basic skeleton of an HTML document, you can add more elements and attributes as per your needs and requirements.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                -[15] what are HTML Attributes?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In HTML, an attribute is a property of an HTML element that provides additional information about how the element should appear or behave.
+Attributes are added to the opening tag of an element, and are made up of a name and a value. For example, the src attribute is used to 
+specify the source URL of an image in an img element, like this: <img src="image.jpg">. Some attributes, like the disabled attribute of 
+a button element, do not require a value and are instead used to toggle a certain behavior or state on or off.
+
+There are many attributes available in HTML, some of which are specific to certain elements, while others can be used with a wide variety 
+of elements. Common attributes include class, id, src, href, alt, style, width, height, title, target, disabled, checked, readonly, 
+required, type, value, placeholder, name, and id
+
+It's worth noting that some attributes are considered global, which means that they can be used on any element. Other attributes are 
+specific to certain elements.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+            -[15] What is the difference between a block element and an inline element? Give few examples of block 
+                                           and inline tags which we have in HTML.
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In HTML, block elements create a rectangular block on the page, and take up the full width of their parent container. 
+They create a new line before and after the element. Examples of block elements include: <div>, <p>, <h1>, <form>, <header>, <footer>.
+
+Inline elements, on the other hand, only take up as much width as necessary, and do not create a new line before or after the element.
+Examples of inline elements include: <span>, <a>, <img>, <strong>, <em>
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                     ||||||||||| CSS |||||||||||
+                                     [LINK] (https://www.interviewbit.com/css-interview-questions/)
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                   -[2].What does CSS stand for?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+CSS stands for Cascading Style Sheets. It is a stylesheet language used for describing the presentation of a document written in a 
+markup language.
+It is primarily used to style HTML and XML documents, but can also be applied to other types of documents. It can be used to control 
+the layout, colors, fonts, and other visual aspects of a webpage or document, and separate the presentation of a document from its 
+structure.
+Cascading refers to the way CSS styles cascade down from a parent element to its child elements and the way it takes priority over 
+earlier styles. With the use of CSS, one can style multiple pages at once and it gives a more organized way to handle presentation 
+and styling of a document.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                   - [1]  What are CSS selectors?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+CSS selectors are patterns used to select the elements from the HTML document that a set of CSS styles will be applied to. 
+There are several different types of selectors available, including element, class, id, and attribute selectors. Selectors 
+can also be combined together to select elements based on multiple criteria. For example, you can use a combination of class
+ and element selectors to select all of the paragraphs inside a specific div with a certain class.
+Example:
+//code
+<div class="example">
+  <p>This is a paragraph.</p>
+  <p>This is another paragraph.</p>
+</div>
+selector : div.example p
+output: all <p> element inside <div class="example">
+//code
+div.example p {
+  color: red;
+}
+This CSS rule would select all the <p> elements that are inside a <div> element with the class "example" and set the text color to red.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                   - [2]  What are CSS variables?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+CSS variables, also known as CSS custom properties, are a way to store and reuse values in a CSS stylesheet. They allow you to 
+define a value once and then reference it multiple times throughout your stylesheet, making it easier to maintain and update
+ your styles.
+CSS variables are defined using the -- prefix and are set using the var() function. For example:
+//code
+:root {
+  --main-color: blue;
+}
+
+p {
+  color: var(--main-color);
+}
+In this example, the --main-color variable is set to the value "blue" on the :root selector, which is a pseudo-class that targets 
+the highest level element in the document. The value can be accessed and used by any other element on the css by var(--main-color);
+CSS variables can also be scoped to specific elements or classes, which means that they can only be accessed by elements within 
+a certain part of the document tree.
+It is supported by most modern browser, with fallback for the older one
+CSS variables have some constraints, for example, it can only be used on property values, not on property names, or selector,
+ and you can't do mathematical operations on it, instead you can use calc() function for that
+--------------------------------------------------------------------------------------------------------------------------------------------
+                              - [3]  What is the difference between position absolute and relative?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In CSS, the position property is used to specify the type of positioning method used for an element. There are four possible values
+ for the position property: static, relative, absolute, and fixed.
+
+static is the default value for the position property. Elements with a static position are not affected by any positioning properties,
+ and they remain in the normal flow of the document.
+
+relative positioning is used to position an element relative to its normal position. For example, if you set the top and left 
+properties on a relatively-positioned element, it will move relative to where it would be in the normal flow of the document. 
+However, it still takes up space in the layout and affects the position of other elements.
+
+absolute positioning is used to position an element relative to its nearest positioned ancestor, instead of the viewport like fixed.
+ However, if none of the ancestor has a position property other than static, it will positioned relative to the viewport. 
+ The element is removed from the normal flow of the document and does not take up any space. It can overlap other elements.
+fixed positioning is used to position an element relative to the viewport, so it always stays in the same place even when the page
+ is scrolled. like absolute but it's relative to viewport
+To summarise, the main difference between relative and absolute positioning is that relative positioning positions an element 
+relative to its normal position in the layout, while absolute positioning positions an element relative to its nearest positioned
+ ancestor, if none, relative to the viewport. Additionally, relative positioned element still occupy space and affect layout, 
+ but absolute positioned elements do not.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                 - [4]  Create a search bar with CSS
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+//body
+<div class="search-container">
+  <form>
+    <input type="text" placeholder="Search...">
+    <button type="submit">Search</button>
+  </form>
+</div>
+...
+//css
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container input[type=text] {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-container button[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-container button[type=submit]:hover {
+  background-color: #45a049;
+}
+This creates a search bar that consists of an input field and a submit button, both placed within a form element. The container
+ element is styled using the CSS flexbox layout to center the elements horizontally and vertically. The input field has a width 
+ of 60%, and the submit button has a width of 20%.
+The input field is given padding, a border and border-radius for styling. The submit button is given background color, color and 
+border-radius.
+It's a basic example, you can change and add more styling as per your requirement.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                     - [5]  What is Box Model?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+The box model in CSS is a layout concept that describes how the dimensions of an HTML element are calculated. It defines a 
+rectangular box for each element, with each box having content, padding, borders, and margins. The box model is used by all web
+ browsers to lay out and render HTML elements.
+The different parts of the box model are:
+Content: The area that contains the element's content, such as text or images. This is the innermost part of the box and is 
+represented by the width and height properties in CSS.
+Padding: The space between the content and the border. It is represented by the padding properties in CSS (padding-top, padding-right,
+ padding-bottom, padding-left).
+Border: The border that surrounds the padding and the content. It is represented by the border properties in CSS
+ (border-top, border-right, border-bottom, border-left).
+Margin: The space outside the border. It is represented by the margin properties in CSS (margin-top, margin-right, margin-bottom,
+ margin-left).
+By default, the width and height properties in CSS refer to the width and height of the content box. However, you can also specify
+ the width and height of the entire box by including the padding, border, and margins. To do this, you can use the box-sizing
+  property with a value of "border-box".
+Understanding how the box model works and how to control it is an essential part of working with layout in CSS, so that you can 
+control the size and position of elements, and achieve the desired layout for your web pages.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                     - [6]  What is a flex-box?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+A flexbox, or flexible box, is a layout method in CSS that makes it easy to create flexible and responsive designs. It allows you to 
+align and distribute elements within a container, and control the layout of elements in a two-dimensional way, similar to grid layout.
+With flexbox, you can lay out elements horizontally or vertically, align them along the main axis or the cross axis, and control the
+ size and position of elements using flex properties.
+A flex container is the parent element in which flex items are laid out. It's created by setting the display property to "flex" 
+or "inline-flex" on the container element.
+//code
+.container {
+  display: flex;
+}
+A flex item is a direct child of a flex container and it's the elements that are laid out and aligned according to the flexbox 
+layout rules.
+The main idea behind flexbox is to provide a more efficient way to lay out, align and distribute space among items in a container. 
+It works well for elements that have to be laid out in a single dimension, you can control the layout more precisely and make your
+ page responsive without using media queries and javascript.
+Flexbox is supported by all modern browsers, including Internet Explorer 11 and Edge 12 and later version.
+It's a powerful layout method for responsive design, can be used for several types of layout, for example, navigation bars, form
+ elements, and grid layouts.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                 - [7]  What does justify-content, justifyItems, justifySelf mean?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In CSS, justify-content, justify-items, and justify-self are properties that are used to align elements within a flex container or 
+grid container.
+justify-content is a property that is applied to the flex container and it controls the alignment of elements along the main axis 
+(horizontally for row layout, vertically for column layout). For example, you can use justify-content: center; to center the elements
+ within a row flex container.
+justify-items is a property that is applied to the flex container, it controls the alignment of individual items along the main axis,
+ if any item has a set value for justify-self it will take precedence, otherwise it will align all items within the container
+justify-self is a property that is applied to individual flex items and it allows you to override the value set by justify-items to
+ align a specific flex item along the main axis.
+....
+Both properties accept several values, like:
+flex-start: align items to the start of the main axis
+flex-end: align items to the end of the main axis
+center: align items to the center of the main axis
+baseline: align items along their baselines
+stretch: stretch items to fill the container along the main axis
+These properties are used in conjuction with other alignment properties like align-items, align-content and align-self to create a
+ flexible and responsive layout.
+It is important to note that justify-content and align-content properties are used for the container and have effect on the empty 
+space between the items, while justify-self, justify-items, align-self and align-items are used for the items.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                    - [8]  What do AlignItems, AlignContent, and AlignSelf mean?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In CSS, align-items, align-content, and align-self are properties that are used to align elements within a flex container or grid
+ container.
+align-items is a property that is applied to the flex container and it controls the alignment of elements along the cross axis 
+(vertically for row layout, horizontally for column layout). For example, you can use align-items: center; to center the elements
+ within a column flex container.
+align-content is similar to align-items, but it applies to the space between the elements (rows or columns) inside the container.
+ It's used when there is more than one line of elements and you want to align the rows (or columns) within the container.
+align-self is a property that is applied to individual flex items and it allows you to override the value set by align-items
+ to align a specific flex item along the cross axis.
+...
+Both properties accept several values, like:
+flex-start: align items to the start of the cross axis
+flex-end: align items to the end of the cross axis
+center: align items to the center of the cross axis
+baseline: align items along their baselines
+stretch: stretch items to fill the container along the cross axis
+Just like justify-content, justify-items, justify-self these properties can be used to control the layout and positioning of elements 
+within a flex container, providing a powerful and flexible way to create responsive designs.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                     - [9]  What are grids?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Grids in CSS refer to the Grid Layout module, a layout method that allows you to create a two-dimensional grid of elements on a 
+web page, similar to a table. The grid is made up of rows and columns, and elements within the grid are placed into grid cells, 
+which can span multiple rows and columns. This allows for precise control over the size and position of elements, making it well
+ suited for creating complex and responsive layouts.
+The grid layout is created by setting the display property to grid on the parent container element, and then using various grid-related
+ properties to specify the number of rows and columns, as well as the placement of elements within the grid.
+
+//body
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
+...
+//css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+In this example, the parent container element is set to use the grid layout, and the grid-template-columns property is used to create a 
+3-column grid. The grid-gap property is used to add spacing between the grid cells.
+Grids are highly customizable, you can specify the size of the rows and columns, placement and spanning of items, align and justify items, 
+gaps, and many more features. It's a powerful layout method, it provides a systematic way of laying out, aligning and adjusting elements
+ on a webpage and can help to create responsive and adaptable designs.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                    - [10]  What are the differences between Flex and Grids?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Flexbox and Grid Layout are both layout methods in CSS that allow you to create flexible and responsive designs for web pages. However,
+ they have some key differences:
+Dimension: Flexbox is a one-dimensional layout method, it is mainly used to layout items in a single dimension, either in a row or a 
+column. Grid Layout, on the other hand, is a two-dimensional layout method that allows you to create a grid of rows and columns on a 
+web page, similar to a table.
+Flexibility: Flexbox is best suited for laying out elements in a single dimension, with the ability to control the alignment, distribution,
+ and size of elements along that dimension. Grid Layout, with its two-dimensional layout, provides a more powerful and flexible way to 
+ create complex and responsive layouts, with fine-grained control over the positioning and alignment of elements in both rows and columns.
+
+Axis: Flexbox layout operates on a main axis and a cross axis, The main axis is the primary axis along which the flex items are laid out
+ and the cross axis is the axis perpendicular to the main axis. Grid layout also has rows and columns that define the main axis and cross
+  axis, but it is more explicit and easy to understand
+Use case: Flexbox is well suited for creating simple layouts like navigation bars, form elements and small scale grid-like structures. 
+Grid layout, on the other hand, is more appropriate for creating complex and responsive layouts such as grid-based layouts, image 
+galleries, and page layouts, where elements need to be positioned in two dimensions and span multiple rows or columns.
+In summary, Flexbox and Grid Layout are both powerful layout methods, but they have different strengths and use cases. Flexbox is great 
+for simple one-dimensional layouts, while Grid Layout is ideal for creating more complex, two-dimensional layouts. You can also use them 
+together, using flexbox to align items within a grid container, making it even more flexible.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                       - [11]  What is specificity, and how do you calculate it?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Specificity is a term used in CSS to determine which CSS styles will be applied to an element when there are multiple styles that could 
+potentially apply to it. Specificity is a numerical value assigned to a CSS rule, based on the types of selectors used in that rule, 
+which is then used to determine which styles will be applied to an element when there are conflicting styles.
+There are three different types of selectors that can be used to select elements in a web page: element selectors, class selectors,
+ and ID selectors. Each type of selector has a different level of specificity, and the specificity value is calculated by counting 
+ the number of each type of selector used in a CSS rule.
+The specificity value is calculated as follows:
+For each element selector, add 1 point
+For each class selector, add 10 points
+For each ID selector, add 100 points
+For example, a CSS rule that uses an element selector and two class selectors would have a specificity value of 1 x 1 + 10 x 2 = 21.
+In case two or more CSS rules target the same element, the one with the highest specificity value wins. If the specificity values 
+are the same, the rule that comes last in the stylesheet is applied.
+It's important to note that the !important keyword also has a very high specificity. When used,
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                       - [12]  What are media queries?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Media queries are a feature in CSS that allows you to apply different styles based on the characteristics of the device or screen 
+on which a web page is being viewed. They allow you to create a responsive design that adjusts to the screen size and resolution 
+of the device being used to view the page, so that the page can be optimized for different devices and screen sizes.
+A media query consists of a media type (such as 'screen' or 'print') and one or more expressions that check for certain conditions,
+ such as the width, height, and resolution of the device. The styles inside the media query are only applied if the conditions 
+ specified in the query are met.
+Here is an example of a media query that changes the font-size of the body text when the viewport width is less than 600px:
+//code
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+}
+You can also chain multiple media queries together. This can help you to write cleaner, more maintainable code.
+//code
+@media (min-width: 600px) and (max-width: 800px) {
+  /* styles here */
+}
+Media queries are becoming more important as the number of different devices and screen sizes that can access the web continues to 
+increase. They allow developers to create designs that adapt to different devices, providing a better user experience for users
+ accessing the website from different devices.
+It's worth noting that media queries are not only used for responsiveness but also for accessibility, for example, to adjust font 
+size, contrast or even hide certain elements for users with specific needs.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                           - [13]  What is the difference between min-width and max-width in media queries?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In media queries, min-width and max-width are used to specify the minimum and maximum width of the viewport, respectively, at which a 
+certain set of styles should be applied.
+min-width is used to apply styles when the viewport width is greater than or equal to a certain value. For example, the following
+ media query applies styles when the viewport width is at least 600 pixels:
+//code
+@media (min-width: 600px) {
+  /* styles here */
+}
+max-width, on the other hand, is used to apply styles when the viewport width is less than or equal to a certain value. For example, 
+the following media query applies styles when the viewport width is no more than 800 pixels:
+//code
+@media (max-width: 800px) {
+  /* styles here */
+}
+You can also combine min-width and max-width in a single media query. For example, the following media query will apply styles when 
+the viewport width is between 600 pixels and 800 pixels:
+//code
+@media (min-width: 600px) and (max-width: 800px) {
+  /* styles here */
+}
+In summary, min-width is used to apply styles when the viewport width is greater than or equal to a certain value and max-width is 
+used to apply styles when the viewport width is less than or equal to a certain value. This is useful when you want to create a
+ responsive design that changes depending on the screen size.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                              - [14]  What are animation and keyframe
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Animation in CSS allows you to bring elements to life by applying smooth transitions between different styles over a period of time.
+ Keyframes are a way to define different styles for different points in an animation, similar to how frames in a movie are used to
+  create the illusion of motion.
+Here is an example of a simple animation that changes the color of a button element over a period of 3 seconds:
+//code
+button {
+  animation: color-change 3s;
+}
+@keyframes color-change {
+  from { background-color: blue; }
+  to { background-color: red; }
+}
+The animation property is used to define the animation, and it takes several values like the name of the animation (color-change),
+ the duration of the animation (3s) and other properties like animation-timing-function which controls how the animation progresses.
+The @keyframes rule is used to define the styles for different points in the animation. In the example above, the from and to keywords 
+are used to define the start and end styles of the animation.
+You can also specify keyframes with percentage, to define different styles at different points in the animation, this allows for much
+ more advanced animation.
+//code
+@keyframes color-change {
+  0%   { background-color: blue; }
+  25%  { background-color: yellow; }
+  50%  { background-color: green; }
+  100% { background-color: red; }
+}
+Using animations and keyframes, you can create a wide range of effects, such as hover effects, scrolling effects, and more. 
+It can be used for adding some dynamic element to your page and provide a good user experience.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                               ||||||||||| IMPORTANT QUESIONS |||||||||||
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                         - [1]  How do you build an infinite scrolling page?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+An infinite scrolling page is a web page that automatically loads new content as the user scrolls down the page. To create an infinite
+ scrolling page, you will need to use JavaScript to detect when the user has scrolled to the bottom of the page and then load new 
+ content dynamically. Here are the general steps you can follow:
+Create a container element for the content that will be loaded dynamically. This will usually be a div or a section element that has
+ a fixed height and an overflow property set to auto.
+Use JavaScript to detect when the user has scrolled to the bottom of the page. You can use the scroll event and the clientHeight,
+ scrollHeight and scrollTop properties of the container element to determine if the user has scrolled to the bottom of the page.
+//code
+const container = document.querySelector('.container');
+container.addEventListener('scroll', function() {
+  if (container.scrollTop + container.clientHeight >= container.scrollHeight) {
+    // load more content
+  }
+});
+Once the user has scrolled to the bottom of the page, load more content using a technique such as an XMLHttpRequest (XHR) or the 
+Fetch API, which allows you to request additional data from a server without refreshing the page.
+//code
+const loadMore = function() {
+  // make the request for more content
+  fetch('/path/to/data').then(response => {
+    // parse the response and append the new content to the container
+  });
+}
+Append the new content to the container element. You can use JavaScript to create new elements, set their content and styles, 
+and then append them to the container element.
+//code
+fetch('/path/to/data').then(response => {
+  response.json().then(data => {
+    data.forEach(item => {
+      let newElement = document.createElement("div");
+      newElement.innerHTML = item.content;
+      container.appendChild(newElement);
+    });
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                        - [2]  How to build a page like imgur or pinterest?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Building a web page like Imgur or Pinterest involves several key steps, including designing a layout, creating the functionality for 
+displaying and managing images, and setting up a back-end to handle server-side functionality like image storage and retrieval.
+
+**Design the layout: One of the main characteristics of Imgur and Pinterest is the use of a grid layout to display images. To replicate
+ this, you will need to create a grid of elements, using techniques like flexbox or CSS grid to arrange the elements in a flexible and 
+ responsive manner.
+**Create the functionality for displaying and managing images: You will need to create a way to display images on the page, and also to
+ handle user interactions like clicking on an image to view a larger version or to post a new image. You can use JavaScript to handle 
+ the interactions with the images and to load new images dynamically using techniques like AJAX, to avoid refreshing the whole page.
+**Setup a back-end: Setting up a back-end is a key step to handle the storage and retrieval of images and other data. It is where you 
+need to handle the user authentication, upload of images, and the interactions with the data like CRUD (create, read, update, delete) 
+operations. The back-end can be created using any popular web development frameworks like Express, Ruby on Rails, and Django. You'll 
+also have to choose a data storage system, for example, you can use a database like MySQL or MongoDB to store the data.
+**Implement search and tagging functionality: You will need to implement a search feature to allow users to search for images by keywords
+ or tags. You can use a text search feature like Elasticsearch to implement this functionality.
+**Implement social features: Both Imgur and Pinterest allow users to like, share, comment on images and also provide a way to create 
+boards and pin images. These features can be implemented using JavaScript on the front-end and with a database on the back-end to track
+ and store the data.
+Building a page like Imgur and Pinterest can be complex and time-consuming, the key is to break it down into manageable parts and to
+ test and refine the different elements of the page as you build it. It is recommended to have a good understanding of web development
+  concepts like HTML, CSS, JavaScript, as well as some experience with server-side technologies and database management before attempting
+   to build a web page like these.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                      - [3]  What are SVGs?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+SVG stands for Scalable Vector Graphics. It is a vector-based graphic format that uses a markup language to describe the shapes, paths, 
+and other visual elements of an image. Unlike raster image formats like JPEG and PNG, which are resolution-dependent and can become 
+pixelated or distorted when scaled, SVG images are resolution-independent, which means they can be scaled up or down without losing 
+quality.
+
+SVG images are made up of a series of mathematical descriptions of the visual elements, which are defined using a markup language 
+similar to HTML. The elements are defined using shapes, paths, and other primitives, which can be manipulated and styled using CSS 
+and JavaScript.
+SVG images are widely supported by web browsers and are becoming increasingly popular for web design and development, as they offer 
+a number of advantages over raster images, including:
+**Small file size: SVG images tend to be much smaller in file size than raster images, which can help to improve the performance and 
+loading time of a web page.
+**Resolution-independence: SVG images can be scaled up or down without losing quality, making them ideal for creating responsive 
+designs that look great on any device.
+**Can be styled with CSS: SVG images can be styled with CSS, which allows you to change their colors, apply transforms and animations, 
+and much more.
+**Easily editable: Because SVG images are defined using a markup language, they are easy to edit and manipulate using text editors
+ and other tools, which can make them more convenient to work with than raster images.
+**Accessibility: SVG allows for the creation of accessible images, for example, adding <title> and <desc> tags to describe the content
+ of the SVG, it can be understood by assistive technology.
+Due to its features and benefits, SVG is widely used in different areas such as icons, illustrations, diagrams and even animations.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                    - [4]  How do you animate SVGs
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+There are several ways to animate SVGs:
+
+**Using CSS animations: You can animate the properties of an SVG element (such as position, rotation, and color) by applying CSS 
+transitions and animations to the element.
+**Using JavaScript: You can use JavaScript libraries such as GreenSock or Snap.svg to animate SVG elements. These libraries provide
+ a wide range of animation options and make it easy to create complex animations.
+**Using SMIL: SVG has its own animation elements, such as <animate>, <animateTransform>, and <animateMotion>. These elements are 
+based on the SMIL (Synchronized Multimedia Integration Language) animation standard, which allows you to specify animations directly 
+in the SVG markup.
+**Using SVG animation tools: there are dedicated animation tool such as Adobe Animate, or Lottie which allow to animate svg using 
+keyframes and export to different format and use in web, mobile or After Effects.
+**Hybrid option: you could use a combination of the above techniques to achieve the animation you want.
+
+The choice of method depends on the complexity of the animation and the resources available to you.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                 - [4] What are pseudo-elements and pseudo-classes in CSS? Give some examples.
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In CSS, a pseudo-element is a keyword that is added to a selector to style a specific part of the selected element(s). 
+It is used to select and style a part of an element, rather than the whole element. Examples of pseudo-elements include:
+
+::before - used to insert content before the selected element
+::after - used to insert content after the selected element
+::first-letter - used to style the first letter of the selected element
+::first-line - used to style the first line of the selected element
+
+Pseudo-classes, on the other hand, are used to select and style an element based on its state or properties. 
+They are used to select elements based on their attributes or relationship with other elements. Examples of pseudo-classes include:
+
+:hover - used to style an element when a user hovers over it
+:active - used to style an element when it is being activated (e.g. clicked on)
+:visited - used to style a link after it has been visited
+:focus - used to style an element when it has focus
+:first-child - used to style the first child element of its parent.
+
+It's important to note that pseudo-elements and pseudo-classes are used in combination with other CSS selectors, 
+and the correct syntax is :pseudo-class or ::pseudo-element.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                    - [4] What are CSS positions? What are the position types in CSS? 
+                                               What is the default position property in CSS?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+CSS position property is used to specify the positioning of an element within the document. 
+It determines how an element is positioned in relation to its parent element and other elements on the web page.
+
+There are five different position types in CSS:
+
+static: is the default position type. Elements with a static position are not affected by the top, bottom, left, and right properties.
+relative: elements with a relative position can be moved using the top, bottom, left, and right properties. They will still take up space 
+in the layout and affect other elements as they normally would.
+absolute: elements with an absolute position are positioned relative to their nearest positioned ancestor, but not the viewport. 
+They do not take up space in the layout and will not affect other elements.
+fixed: elements with a fixed position are positioned relative to the viewport, and will not move when the page is scrolled.
+sticky: elements with a sticky position are positioned based on the user's scroll position. They will act like a relative positioned 
+element until a certain scroll point is reached and then they will act like a fixed positioned element.
+The default position property in CSS is static, which means that elements are positioned according to the normal flow of the document 
+and not affected by the top, bottom, left, and right properties.

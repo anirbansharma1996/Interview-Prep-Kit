@@ -1,0 +1,1300 @@
+____________________________________________________________________________________________________________________________________________
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: REACT REDUX :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+____________________________________________________________________________________________________________________________________________
+
+                                                    ||||||||||| REACT |||||||||||   
+                                                    
+                                   [LINK] (https://www.interviewbit.com/react-interview-questions/)     
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                    -[0] What is Library ?
+-------------------------------------------------------------------------------------------------------------------------------------------- 
+ANS.
+A library is a collection of pre-built code that can be reused to perform specific tasks or functions, such as manipulating images, 
+parsing data, or generating user interfaces. Libraries are usually focused on solving a particular problem or set of problems, and 
+they can be used in various projects to simplify development.     
+                                     
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                        -[1] What is React?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+React is a front-end and open-source JavaScript library which is useful in developing user interfaces specifically for applications with
+a single page. It is helpful in building complex and reusable user interface(UI) components of mobile and web applications as it follows
+the component-based approach.
+
+The important features of React are:
+
+1.It supports server-side rendering.
+2.It will make use of the virtual DOM rather than real DOM (Data Object Model) as RealDOM manipulations are expensive.
+3.It follows unidirectional data binding or data flow.
+4.It uses reusable or composable UI components for developing the view.
+
+
+
+         [https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/27035/MeiWWtaXrz2nbhbXInh4x5tsb96sT4eAdWFixAbx.mp4]
+         (https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/27035/MeiWWtaXrz2nbhbXInh4x5tsb96sT4eAdWFixAbx.mp4)
+    
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                            -[2]What is JSX
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+JSX is a syntax extension for JavaScript. It is used with React to describe the structure and content of a component. It is similar 
+to a template language, but it has the full power of JavaScript. With JSX, you can write HTML-like elements and components in your 
+JavaScript code, and React will automatically update the DOM to match the structure described in your JSX.
+
+JSX elements are treated as JavaScript expressions, and they can be rendered to the DOM using React's render() method. For example,
+ the following JSX code:
+
+Copy code
+const element = <h1>Hello, world!</h1>;
+will be transpiled to
+Copy code
+const element = React.createElement("h1", null, "Hello, world!");
+
+It is important to note that JSX is not supported by all JavaScript environments and it needs to be transpiled using tools like Babel 
+to be used in the browser.
+
+                                 (https://www.notion.so/What-is-JSX-40bb315c430d4ab098df8a29c9d85945)
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                           [3] What is the difference between State and Props?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In React, components can have two types of data: props and state.
+
+Props (short for properties) are a way to pass data from a parent component to its child component. Props are read-only, which means 
+that a child component cannot modify the props that it receives from its parent. Props are passed to a component as attributes when the 
+component is being rendered.
+
+State, on the other hand, is a way for a component to store and manage its own internal data. State can be modified by a component and 
+it will cause the component to re-render. State should only be modified using React's setState() method.
+
+In summary, the main difference between props and state is that props are passed down from a parent component to a child component and 
+can be considered as "inputs" to a component, while state is a way for a component to keep track of its own internal data and can be 
+considered as "memory" of a component.
+    
+       [https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/27037/1MoOwWo5GQbCoDiMBIhx0dvfTxnJIW8xChFjB9DM.mp4]
+       (https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/27037/1MoOwWo5GQbCoDiMBIhx0dvfTxnJIW8xChFjB9DM.mp4)
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                -[4] What is Conditional Rendering?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+ Conditional rendering in React refers to the ability to conditionally display or render different components or elements in the UI 
+based on certain conditions. This is commonly done using JavaScript's if and else statements, or using a ternary operator inside JSX.
+
+For example, you might want to render a different component or message depending on whether a user is logged in or not. You can use a 
+ternary operator inside the JSX to achieve this:
+
+Copy code
+{isLoggedIn ? <WelcomeMessage /> : <LoginForm />}
+In this example, if the isLoggedIn variable is true, the WelcomeMessage component will be rendered, otherwise the LoginForm component 
+will be rendered.
+
+Another way is to use if-else statement, it would look something like this:
+
+Copy code
+{
+    if (isLoggedIn) {
+        return <WelcomeMessage />;
+    } else {
+        return <LoginForm />;
+    }
+}
+It is also possible to use the logical && operator for similar effect.
+
+Copy code
+{isLoggedIn && <WelcomeMessage />}
+In this case, if isLoggedIn is true the component WelcomeMessage will be rendered, otherwise nothing would be rendered.
+
+It is important to note that doing too much conditional rendering can make your code complex and harder to maintain. The best practice is
+ to use it only when necessary and keep your component simple.
+
+    
+        [https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/27038/2e5qgd0V9Ev2NfyKt4GbimpqHJnKdNPooEVXF9vW.mp4]
+        (https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/27038/2e5qgd0V9Ev2NfyKt4GbimpqHJnKdNPooEVXF9vW.mp4)
+
+--------------------------------------------------------------------------------------------------------------------------------------------   
+                                          -[5] What is Lifecycle Diagram / Phases ( Hooks )
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In React, a component goes through several phases or lifecycle methods, which are methods that are called at specific points in a 
+  component's lifecycle. These methods can be used to perform certain actions, such as fetching data or updating the component's state.
+
+The lifecycle methods can be grouped into three main phases:
+
+Mounting: This is the phase where a component is being added to the DOM. The following methods are called during this phase:
+
+constructor(): This method is called before the component is mounted. It is used to initialize the component's state and props.
+componentWillMount(): This method is called just before the component is mounted. It is a legacy method and is not recommended to use 
+anymore.
+render(): This method is called to render the component.
+componentDidMount(): This method is called after the component is mounted. It is commonly used to fetch data or perform other setup
+ tasks.
+
+Updating: This is the phase where a component is being updated with new props or state. The following methods are called during this 
+phase:
+
+componentWillReceiveProps(): This method is called when a component receives new props. It is a legacy method and is not recommended to 
+use anymore.
+shouldComponentUpdate(): This method is called before the component is updated. It is used to determine if the component should re-render 
+or not.
+componentWillUpdate(): This method is called just before the component is updated. It is a legacy method and is not recommended to use 
+anymore.
+render(): This method is called to render the updated component.
+componentDidUpdate(): This method is called after the component is updated. It is commonly used to update the component's DOM or perform
+ other tasks.
+
+Unmounting: This is the phase where a component is being removed from the DOM. The following method is called during this phase:
+
+componentWillUnmount(): This method is called just before the component is unmounted. It is commonly used to clean up any resources or 
+listeners associated with the component.
+With the introduction of React Hooks, the lifecycle methods are not used as frequently. Instead, hooks like useEffect, useState,
+ and useContext are used to manage the component's state and side effects.
+
+It is important to note that the lifecycle methods are not required to use when building React components and hooks provide an 
+alternative way to manage the component's state and side effects.
+
+
+       [https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/27039/tQP90kChoCSHqft0Ad2ixs8dTqg8tgyufRBSYC55.mov]
+       (https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/27039/tQP90kChoCSHqft0Ad2ixs8dTqg8tgyufRBSYC55.mov)
+
+-------------------------------------------------------------------------------------------------------------------------------------------- 
+                                                  -[6] Explain how lists work in React?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In React, lists are typically rendered using the map() function to iterate over an array of data and create a new array of elements. 
+Each element in the new array represents an item in the list and is typically a React component.
+
+For example, let's say we have an array of data called items:
+
+Copy code
+const items = [
+    { id: 1, text: "Item 1" },
+    { id: 2, text: "Item 2" },
+    { id: 3, text: "Item 3" }
+];
+We can use the map() function to iterate over this array and create a new array of elements:
+
+Copy code
+const listItems = items.map((item) => {
+    return <li key={item.id}>{item.text}</li>
+});
+The key prop is a unique identifier for each element in the list, it is required by React to keep track of the list and update it 
+efficiently.
+
+Then we can use the listItems array to render the list in our component:
+
+Copy code
+render() {
+    return (
+        <ul>
+            {listItems}
+        </ul>
+    );
+}
+It is also possible to use the .map function directly inside the JSX, this is a common practice when the list is small and doesn't 
+require an extra variable:
+
+Copy code
+render() {
+    return (
+        <ul>
+            {items.map((item) => <li key={item.id}>{item.text}</li>)}
+        </ul>
+    );
+}
+It is important to note that when working with lists, the component that renders each item should also be unique by using a unique key,
+ this helps React to efficiently update the list when it changes.
+    
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                              -[7] What is Virtual DOM & How does it Work?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+The Virtual DOM (VDOM) is a concept used by React to optimize the performance of updating the user interface (UI). The VDOM is a 
+lightweight, in-memory representation of the actual DOM. It allows React to compare the current VDOM with a new VDOM, generated from 
+updated component state or props, and determine the minimal set of changes necessary to update the actual DOM.
+
+When a component's state or props change, React will first create a new VDOM, then it will compare it to the previous VDOM. The 
+comparison process is called "reconciliation". During this process, React will identify the minimal set of changes necessary to update 
+the actual DOM and make those changes. This process of creating a new VDOM and comparing it to the previous VDOM is called "re-rendering".
+
+
+The process of re-rendering works as follows:
+
+React creates a new VDOM based on the updated component state or props.
+React compares the new VDOM to the previous VDOM, and identifies the minimal set of changes necessary to update the actual DOM.
+React updates the actual DOM with the minimal set of changes identified in step 2.
+The use of the VDOM allows React to update the UI in a very efficient way, as it only needs to make the minimal set of changes necessary,
+rather than re-rendering the entire UI every time a change occurs. This makes React faster and more performant than other frameworks 
+that re-render the entire UI on every change.
+
+It is worth noting that the VDOM is not a physical DOM but it's an abstract representation of the real DOM that React uses to update the
+ UI efficiently. The actual DOM updates happen after the VDOM has done its job and calculated the minimal set of changes that must be 
+ applied.
+
+                           (https://www.notion.so/What-is-Virtual-DOM-How-does-it-Work-afecd0003929454b85249bdcd75bd9b6)
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                -[8] How does Class Components work?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In React, a class component is a way to define a component using an ES6 class. Class components are a way to define components that
+ have a state and lifecycle methods.
+
+A class component is defined by creating a class that extends the React.Component class, and then implementing a render() method that 
+returns JSX. For example:
+
+Copy code
+class MyComponent extends React.Component {
+    render() {
+        return <h1>Hello, world!</h1>;
+    }
+}
+The constructor() method is used to initialize the component's state and props:
+
+Copy code
+class MyComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0
+        };
+    }
+    render() {
+        return <h1>{this.state.count}</h1>;
+    }
+}
+A class component can also have lifecycle methods, such as componentDidMount() and componentWillUnmount(), which are called at specific 
+points in the component's lifecycle. For example, you can use the componentDidMount() method to fetch data from an API:
+
+Copy code
+class MyComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: null
+        };
+    }
+    componentDidMount() {
+        fetch("https://api.example.com/data")
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ data });
+            });
+    }
+    render() {
+        return <h1>{this.state.data}</h1>;
+    }
+}
+Class components provide a way to define components that have state and lifecycle methods, and they are widely used in older React 
+applications. However, with the introduction of React hooks, functional components are now the recommended way to define components in
+ React.
+
+                            (https://www.notion.so/How-does-Class-Components-work-46ddc312d65b47dc88f4ceeda16e1dcd)
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                     - [9]  What are keys in React?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In React, keys are used to identify elements in a list of items, they are used by React to keep track of the elements and update them 
+efficiently. Keys should be unique among siblings and are used to help React determine the minimal set of changes necessary when updating
+ the list.
+
+When working with lists of items, the component that renders each item should have a unique key prop, this helps React to efficiently 
+update the list when it changes.
+
+When working with list of items, each item should have a unique key, for example when working with an array of data, each data item 
+can have an id property that can be used as a key:
+
+Copy code
+const items = [
+    { id: 1, text: "Item 1" },
+    { id: 2, text: "Item 2" },
+    { id: 3, text: "Item 3" }
+];
+Then when the component is rendered, the key prop can be set to the id of the item:
+
+Copy code
+const listItems = items.map((item) => {
+    return <li key={item.id}>{item.text}</li>
+});
+It is important to note that keys should be unique among siblings, meaning that the key should be unique among all the items in the list,
+and it should not change, and it should not be reused for different elements. React will give a warning if the keys are not unique or if
+they change.
+
+In summary, keys are used by React to identify elements in a list of items, and they are used to help React determine the minimal set 
+of changes necessary when updating the list and they should be unique among siblings.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                [10]  What is memoisation in react?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Memoization is a technique used to optimize the performance of functions by caching the results of function calls based on their inputs.
+ In React, memoization can be used to optimize the performance of components by caching their output based on their props.
+
+React provides a built-in hook called useMemo that allows you to memoize a component's output based on its props. When the component's 
+props change, React will re-render the component, but it will also check if the memoized output is still valid based on the new props.
+ If it is valid, React will not re-render the component, and instead, it will use the cached output.
+
+For example, let's say you have a component that renders a list of items:
+
+Copy code
+function MyComponent({ items }) {
+    return (
+        <ul>
+            {items.map(item => <li key={item.id}>{item.text}</li>)}
+        </ul>
+    );
+}
+This component will re-render every time its props change, even if the items array hasn't changed. To optimize the performance of this 
+component, you can use the useMemo hook to memoize the output based on the items array:
+
+Copy code
+function MyComponent({ items }) {
+    const listItems = useMemo(() => {
+        return items.map(item => <li key={item.id}>{item.text}</li>);
+    }, [items]);
+
+    return (
+        <ul>
+            {listItems}
+        </ul>
+    );
+}
+In this example, the useMemo hook is used to memoize the listItems variable based on the items array. If the items array hasn't changed,
+ the memoized listItems variable will be used, and the component will not re-render.
+
+It is important to note that memoization can be useful in certain situations but it is not a silver bullet for performance optimization.
+ It is important to use it judiciously, it can be costly to compute the memoized values and also it can make the code harder to 
+ understand and maintain.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                           [11]  What is the difference between react.memo and react.useMemo?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+React.memo and React.useMemo are both related to memoization in React and they are used to optimize the performance of functional 
+components.
+
+React.memo is a higher-order component that is used to wrap a functional component and make it "memoized". When a component is memoized, 
+React will only re-render it if its props have changed. This can help to improve the performance of your application by preventing 
+unnecessary re-renders.
+
+React.useMemo is a hook that is used to memoize a value or a piece of computation. It takes two arguments: a function that returns the 
+value to be memoized, and an array of dependencies. When the dependencies change, the function will be re-run, otherwise the previous
+ memoized value will be returned.
+
+In summary, React.memo is used to memoize a functional component and prevent unnecessary re-renders, while React.useMemo is used to 
+memoize a value or a piece of computation inside a functional component.
+
+React.memo is used to optimize the performance of a functional component by preventing unnecessary re-renders, while React.useMemo is 
+used to memoize a value inside a functional component.
+
+Both React.memo and React.useMemo are used to improve the performance of functional components by reducing the number of unnecessary 
+re-renders. but they work in different way, React.memo is used to memoize a functional component and React.useMemo is used to memoize a 
+value or a piece of computation inside a functional component.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                  [12]  What are the parameters that react memo takes?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+React.memo takes a single parameter, which is the functional component that you want to memoize.
+
+It also takes an optional second parameter, which is a comparison function. This function is used to determine whether the component 
+should re-render or not. By default, React will compare the props of the component using a shallow comparison (Object.is), but you can 
+provide your own comparison function to customize this behavior.
+
+The comparison function takes two arguments: the previous props and the next props. It should return true if the component should 
+re-render, and false if it should not.
+
+For example:
+
+Copy code
+function MyComponent(props) {
+    return <h1>{props.text}</h1>;
+}
+
+const MemoizedMyComponent = React.memo(MyComponent);
+or
+
+Copy code
+const MemoizedMyComponent = React.memo(MyComponent, (prevProps, nextProps) => {
+    return prevProps.text === nextProps.text;
+});
+In this example, MyComponent is the functional component that will be memoized, and MemoizedMyComponent is the memoized version of the 
+component. The second example also provides a custom comparison function that compares the text prop of the component.
+
+In summary, React.memo takes a single parameter which is the functional component to be memoized, and an optional second parameter 
+which is a comparison function that determines whether the component should re-render or not.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                     [13]  What are the different ways to apply useEffect?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+There are several ways to apply the useEffect hook in React:
+
+Basic usage: The simplest way to use useEffect is to pass a callback function as the first argument, and an empty array as the second 
+argument. The callback function will be run after the component has rendered, and the empty array tells React that the effect has no 
+dependencies and should only run on the initial render.
+Copy code
+useEffect(() => {
+    // code to run on mount and every re-render
+}, []);
+With dependencies: To run the effect only when certain values change, you can pass an array of dependencies as the second argument to 
+useEffect. The effect will run when any of the values in the array change.
+Copy code
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+    console.log(`Count: ${count}`);
+}, [count]);
+With cleanup function: To run some code on unmount or before re-running the effect, you can return a cleanup function from the effect 
+callback.
+Copy code
+useEffect(() => {
+    const intervalId = setInterval(() => {
+        // do something
+    }, 1000);
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                           [14]  How does Routing work with react?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Routing in React is the process of mapping URLs to specific components of an application. This allows the application to respond to 
+different URLs and display different content based on the user's interactions.
+
+React Router is the most popular routing library for React applications. It provides a powerful and flexible way to handle routing in a 
+React application.
+
+React Router provides a <Route> component that is used to define routes in your application. Each route is defined by a path and a 
+component that should be rendered when the path is matched.
+
+Copy code
+<Route path='/' component={HomePage} />
+<Route path='/about' component={AboutPage} />
+A <Switch> component can be used to ensure that only one route is matched at a time.
+
+React Router also provides a <Link> component that can be used to create links between different routes in your application.
+
+Copy code
+<Link to='/about'>About</Link>
+Additionally, React Router provides a <Router> component that is used to configure the router. It takes a history prop that tells the 
+router how to handle navigation and a basename prop that tells the router what the base path of the application is.
+
+It is worth mentioning that there are other libraries for routing like React Router Dom, Reach Router, and Next.js which is a framework 
+that also utilizes routing in their way.
+
+In summary, routing in React is the process of mapping URLs to specific components of an application. React Router is the most popular 
+routing library for React applications, it provides a powerful and flexible way to handle routing in a React application by providing a 
+<Route>, <Switch>, <Link>, <Router> component that can be used to define, match and navigate between different routes in your application.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                     [15]  What is SSR and CSR?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+SSR and CSR are two different ways of rendering a React application on the client-side and server-side.
+
+Server-side rendering (SSR): Server-side rendering (SSR) is the process of rendering a React application on the server and sending the
+ fully rendered HTML to the browser. This allows the application to be indexed by search engines and improves the initial load time for
+  users, as the browser does not have to wait for JavaScript to execute before displaying content. However, it requires additional 
+  server-side setup and can increase the complexity of the application.
+
+Client-side rendering (CSR): Client-side rendering (CSR) is the process of rendering a React application on the client, typically in the
+ browser. The application is initially rendered as a blank HTML page, and then the JavaScript bundle is loaded and executed, which
+  updates the page with the actual content. CSR is easier to set up and allows for more dynamic interactions, but it can result in a
+   slower initial load time for users.
+
+It's worth noting that, it's possible to use both SSR and CSR in the same application, this technique is known as "Hybrid rendering" and 
+allows you to take advantage of the benefits of both techniques.
+
+In summary, SSR is the process of rendering a React application on the server and sending the fully rendered HTML to the browser, while
+ CSR is the process of rendering a React application on the client, typically in the browser, this allows for more dynamic interactions
+  but results in a slower initial load time for users.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                   [16]  What are the lifecycle methods in class components?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In class components, React provides several lifecycle methods that can be used to handle specific logic at specific points in the 
+lifecycle of the component. The lifecycle methods are methods that are automatically called by React at different points in the lifecycle
+ of a component.
+
+The main lifecycle methods are:
+
+constructor(props): This method is called before the component is mounted and is used to initialize the component's state and props.
+
+componentDidMount(): This method is called after the component is mounted and can be used to fetch data or perform other logic that
+ requires the component to be fully rendered.
+
+shouldComponentUpdate(nextProps, nextState): This method is called before the component is updated and allows you to determine whether 
+the component should update or not. It takes the next props and next state as arguments and should return a boolean.
+
+componentDidUpdate(prevProps, prevState): This method is called after the component updates and can be used to handle logic that needs to
+ be run after the component updates.
+
+componentWillUnmount(): This method is called before the component is unmounted and can be used to clean up any resources or listeners 
+that the component has created.
+
+render(): This method is used to return the JSX for the component, this method is mandatory for all class components.
+
+It is worth noting that these methods are called in a specific order, and they are all optional, you only need to implement the methods
+ that you need for your specific use case.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                              [17]  What are dependencies in useEffect?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+useEffect is a Hook in React that allows you to synchronize a component with an external system. It can be used to fetch data, 
+set up subscriptions, or manually change the DOM in response to a user action. It takes a callback function as its first argument and 
+an array of dependencies as its second argument. The callback function is called after the component has rendered and is used to perform 
+the side-effect. The dependencies array is used to determine when the effect should be re-run. It is re-run if any of the dependencies
+have changed since the last render.
+
+In useEffect hook, the second parameter is an array of dependencies. Dependencies are the variables or state that you want to track, 
+and when they change, the effect will re-run.
+
+Dependencies are passed as an array to the useEffect hook. If the dependencies change, the effect will re-run. If you don't want the 
+effect to re-run, you can pass an empty array as the second argument to useEffect, this tells React that the effect has no dependencies
+and should only run on the initial render.
+
+For example:
+
+Copy code
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+    console.log(`Count: ${count}`);
+}, [count]);
+In this example, the effect is dependent on the count state and it will re-run every time the count changes.
+
+It's worth noting that if you don't pass any dependencies, the effect will re-run on every render and if you pass dependencies, but you 
+miss one of them it may cause unexpected behavior.
+
+In summary, the dependencies in useEffect are the variables or state that you want to track, and when they change, the effect will 
+re-run. It's important to be careful when choosing the dependencies and make sure that they are the minimal set of values that the effect
+ needs to work.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                 [18]  What is a pure component?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+A pure component is a component that only updates when its props or state change. A pure component is a component that implements a 
+shouldComponentUpdate method that compares its previous props and state with its next props and state and returns false if they are the
+ same. This means that the component will not re-render if its props or state haven't changed.
+
+In React, a component is considered pure if it only depends on its props and state and does not have any side-effects, such as calling 
+setState or making a network request.
+
+React provides a PureComponent base class that can be used to create a pure component. A PureComponent is similar to a Component but it 
+implements a shouldComponentUpdate method that performs a shallow comparison of the props and state. If the props and state are the same,
+ the component will not re-render.
+
+For example:
+
+Copy code
+class MyPureComponent extends React.PureComponent {
+    render() {
+        return <div>{this.props.text}</div>;
+    }
+}
+In this example, MyPureComponent is a pure component that only updates when its text prop changes.
+
+It is worth mentioning that React also provides a hook React.memo that can be used to create a functional component that is pure and 
+works similarly to React.PureComponent.
+
+In summary, a pure component is a component that only updates when its props or state change and it only depends on its props and state,
+it does not have any side-effects. React provides a PureComponent base class and React.memo hook that can be used to create a pure 
+component.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                     [19]  What is useCallback?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+useCallback is a hook in React that allows you to memoize a callback function. It takes two arguments: the callback function and an array 
+of dependencies. When the dependencies change, the callback function will be re-created, otherwise the previous memoized function
+will be returned.
+
+The useCallback hook is similar to the useMemo hook, but it's specifically used for memoizing callback functions.
+
+The main use case for useCallback is to optimize the performance of functional components that pass callback functions as props to 
+child components. When a child component re-renders, it will cause its parent component to re-render as well if the callback function 
+is passed as a prop. By using useCallback, you can ensure that the callback function is only recreated when it's needed, which can help 
+to improve the performance of your application by preventing unnecessary re-renders.
+
+For example:
+
+Copy code
+const MyComponent = ({ onClick }) => {
+    return <button onClick={onClick}>Click me</button>;
+};
+
+const ParentComponent = () => {
+    const [count, setCount] = useState(0);
+    const handleClick = useCallback(() => setCount(count + 1), [count]);
+
+    return (
+        <>
+            <MyComponent onClick={handleClick} />
+            <div>{count}</div>
+        </>
+    );
+};
+In this example, ParentComponent passes a callback function to MyComponent as a prop. By using useCallback, the callback function is 
+only recreated when the count state changes.
+
+In summary, useCallback is a hook that allows you to memoize a callback function, it takes two arguments: the callback function and an
+ array of dependencies. When the dependencies change, the callback function will be re-created, otherwise the previous memoized function
+  will be returned. It's used to optimize the performance of functional components that pass callback functions as props to child 
+  components.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                         [20]  What are useRefs? What are some usecases?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+useRef is a hook in React that allows you to create a reference to a DOM element or a value that persists across renders. A ref is an 
+object that stores a reference to a value, and it can be used to access the current value of a component's state or props, or to interact
+with the DOM.
+
+useRef returns a mutable object with a single property, current, which is initially set to the value you passed as an argument. You can
+use useRef to store a value that you want to persist across renders.
+
+For example:
+
+Copy code
+const inputRef = useRef(null);
+
+return <input ref={inputRef} />;
+In this example, inputRef is a ref object that stores a reference to the input element. This reference can be used to access the input 
+element later on, for example to focus on it:
+
+Copy code
+inputRef.current.focus();
+useRef is also commonly used to store a value that needs to persist across re-renders. For example, you can use it to store a value that 
+is used to control an animation, or to store a timer ID.
+
+Copy code
+const intervalRef = useRef();
+
+useEffect(() => {
+    intervalRef.current = setInterval(() => {
+        // do something
+    }, 1000);
+    return () => clearInterval(intervalRef.current);
+}, []);
+In summary, useRef is a hook that allows you to create a reference to a DOM element or a value that persists across renders. It can be 
+used to access the current value of a component's state or props, or to interact with the DOM. It's also commonly used to store a value 
+that needs to persist across re-renders, for example to store a value that is used to control an animation, or to store a timer ID.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                   [21]  What are callback refs?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Callback refs are a way to create a reference to a DOM element or a value in React. Unlike the useRef hook, callback refs use a 
+callback function to set the current value of the ref. The callback function is passed to the component as a prop and is called with 
+the ref object as its argument.
+
+Callback refs are typically used when you need to access the DOM element or a value immediately after it is created, such as when you 
+need to focus on an input element after it is rendered.
+
+For example,
+
+Copy code
+class MyComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.inputRef = React.createRef();
+    }
+    componentDidMount() {
+        this.inputRef.current.focus();
+    }
+    render() {
+        return <input ref={this.inputRef} />;
+    }
+}
+In this example, this.inputRef is a ref object that is created in the constructor and passed as a ref prop to the input element.
+ The componentDidMount lifecycle method is used to access the input element and call the focus method on it.
+
+Callback refs are also possible to create with functional component and by using the useImperativeHandle hoo
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                     [22]  How does Context API work? What does it solve?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+The React Context API allows components to share data without having to pass props down through multiple levels of the component tree. 
+It provides a way to share data that is considered "global" or "application-level" state.
+
+The Context API consists of two main parts: the Context object and the useContext Hook. The Context object is used to create a context, 
+and it accepts a default value that will be used if no provider is found. The useContext Hook is used to access the context value within
+ a component.
+
+To create a context, you use the React.createContext() function, which returns an object with a Provider and a Consumer.
+
+The Provider component is used to provide the context value to any component that is a descendant. It takes a value prop that is used to
+ set the context value.
+
+The Consumer component is used to access the context value within a component. It takes a function as a child that is called with the 
+context value.
+
+The useContext Hook can also be used to access the context value within a component. It takes the context object as an argument and 
+returns the current context value.
+
+The Context API solves the problem of prop drilling, where you have to pass props down multiple levels of the component tree. With the
+ Context API, you can create a context and provide it at a higher level in the component tree, making the data available to all 
+ descendant components without having to pass props down manually.
+
+It also makes it easy to update the context value and have it automatically propagate to all components that use it, without having to 
+manually pass callbacks down through the component tree.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                [23]  What does useReducer do?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+using the useReducer Hook for managing state, and is useful for complex state management that involves multiple state variables or state 
+logic that is difficult to handle with useState.
+
+useReducer takes two arguments: a reducer function and an initial state. The reducer function is a pure function that takes the current 
+state and an action as arguments, and returns the next state. The initial state is the initial value of the state when the component is 
+first rendered.
+
+The useReducer Hook returns an array with two elements: the current state and a dispatch function. The dispatch function is used to 
+update the state by calling the reducer function with an action. The action is an object that contains information about the state update,
+such as the type of update and any additional data needed.
+
+Example:
+
+Copy code
+const [state, dispatch] = useReducer(reducer, initialState);
+In this example, the useReducer Hook is used to manage state in a functional component. 
+The initial state is passed as the second argument, and the reducer function is passed as the first argument. 
+The useReducer Hook returns an array with the current state and a dispatch function. The dispatch function is used to update the 
+state by calling the reducer function with an action.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                         [24]  When do you use useReducer vs useState?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+useState is typically used for simple state management in a functional component, while useReducer is used for more complex state 
+management, such as when the state updates need to be handled in a specific way or when the state is deeply nested. useReducer also 
+allows for more powerful performance optimizations. Use useState when you only need to manage a single state value, if you are just 
+starting with React, or if your component doesn't have complex state logic. Use useReducer when you need more control over state updates, 
+or when your component needs to handle multiple state values or perform more complex state logic.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                  [25]  How do you use Profiler?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+The React.Profiler component is a tool that can be used to measure the performance of a React application by measuring how long it takes
+for a component to render. It allows you to identify which components are taking the longest to render and to optimize those components
+for better performance.
+
+To use the React.Profiler, you first need to import it from the React library. Then, you can add it to your component tree by wrapping
+it around the component or components that you want to measure.
+
+Here is an example of how you might use the React.Profiler to measure the performance of a component called MyComponent:
+
+Copy code
+import React, { Profiler } from 'react';
+
+function MyComponent() {
+  return <div>My Component</div>;
+}
+
+function App() {
+  return (
+    <Profiler id="MyComponent" onRender={onRenderCallback}>
+      <MyComponent />
+    </Profiler>
+  );
+}
+The id prop is a unique identifier for the component that is being profiled, and the onRender prop is a callback function that will be 
+called every time the component is rendered. The callback function receives an object with information about the component's render
+ performance, including the actual duration of the render.
+
+You can use this information to identify the components that are taking the longest to render and optimize them for better performance.
+
+It is important to note that Profiler is an experimental feature and is not recommended to use it in Production.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-        [26]  Can you create a tree structure and explain how the state management will be designed for a game like tic tac toe?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Sure! Here's an example of how you might structure the state management for a Tic Tac Toe game in a React application:
+
+Copy code
+const initialState = {
+  board: [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null]
+  ],
+  currentPlayer: "X",
+  gameOver: false,
+  winner: null
+};
+
+function Game() {
+  const [state, dispatch] = useReducer(gameReducer, initialState);
+
+  function handleClick(row, col) {
+    dispatch({ type: "SELECT_CELL", payload: { row, col } });
+  }
+
+  return (
+    <div>
+      {state.board.map((row, rowIndex) => (
+        <div>
+          {row.map((cell, colIndex) => (
+            <Cell
+              value={cell}
+              onClick={() => handleClick(rowIndex, colIndex)}
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+In this example, the state of the game is represented by an object with the following properties:
+
+board: a 2D array that represents the state of the game board. Each cell in the array can contain the value "X", "O", or null, depending 
+on whether the cell has been selected by player X, player O, or is unselected.
+currentPlayer: a string that represents the current player (either "X" or "O").
+gameOver: a boolean that is true when the game is over (either because there is a winner or a draw).
+winner: a string that contains the player who won the game or null if the game is a draw.
+The Game component uses the useReducer hook to manage the state of the game. The gameReducer function is called whenever an action is 
+dispatched and it updates the state accordingly. In this example, the SELECT_CELL action is dispatched when a cell is clicked and it 
+updates the board and currentPlayer state.
+
+The Game component renders the game board as a 2D array of Cell components, which are simple components that render a single cell in the
+ game board. Each Cell component receives the value prop and an onClick prop that is used to handle the click event and dispatch the 
+ SELECT_CELL action.
+
+This is a basic example, but you can add more complexity to your game, like checking for the winner or handling different game over 
+states, by adding more conditions to the reducer function.
+
+Additionally, you can extract the state and the reducer function to a custom hook, this way you can make the state and logic reusable.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                   [27]  What is dispatcher?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+A dispatcher is a mechanism used to handle the flow of data within a program. In the context of React, the dispatch function is used to 
+send actions to a reducer function, which updates the state of a component based on the action that was dispatched.
+
+The dispatch function is typically used with the useReducer hook, which is a way to handle state in a functional component. The 
+useReducer hook takes two arguments: a reducer function and an initial state. The reducer function is a pure function that takes the 
+current state and an action as arguments and returns the new state.
+
+When an action is dispatched using the dispatch function, the reducer function is called with the current state and the action as 
+arguments. The reducer function then returns the new state, which is passed to the component as the first argument of the useReducer 
+hook.
+
+For example:
+
+Copy code
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <>
+      <p>{state.count}</p>
+      <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
+    </>
+  );
+}
+In this example, the Counter component uses the useReducer hook with a reducer function that takes the current state and an action as 
+arguments. The component then renders a counter and two buttons that dispatch the 'increment' and 'decrement' actions when clicked.
+
+It's important to note that the dispatch function is used to send actions to the reducer function, and the reducer function updates the 
+state with the new values
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                              [28]  What is flux architecture?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Flux is an architectural pattern for building user interfaces, particularly in applications using the React library. It provides a way 
+to manage the flow of data in an application, which helps to make the application more predictable and easier to reason about.
+
+Flux architecture consists of four main components:
+
+The Dispatcher: The central hub that manages all the data flow in the application. It receives actions from the views and dispatches 
+them to the appropriate stores.
+
+The Stores: These hold the application's state and logic. They listen to actions dispatched by the Dispatcher, update their state 
+accordingly and emit a change event.
+
+The Views: These are the components that present the data to the user. They listen to changes in the stores and update their view 
+accordingly.
+
+The Actions: These are the payloads of information that flow through the application, representing the fact that something has happened. 
+They are dispatched by the views and handled by the stores.
+
+Flux architecture enforces a unidirectional data flow, where data flows in a single direction from the views, through the dispatcher, 
+to the stores, and back to the views. This helps to make the application more predictable and easier to reason about, as the flow of 
+data is clearly defined and the different components of the application have well-defined responsibilities.
+
+Flux is not a library, but a pattern, and there are several libraries that implement it, such as Redux, MobX, etc.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                  [29]  What are reducers?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In the context of Flux architecture, a reducer is a function that takes the current state of an application and an action, and returns 
+the next state. Reducers are used in combination with a store to update the state of an application in response to an action.
+
+A reducer function takes two arguments: the current state, and an action. It then performs a calculation based on the action and the 
+current state, and returns the new state. The new state is then passed to the store and is used to update the state of the application.
+
+Here is an example of a simple reducer function:
+
+Copy code
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+In this example, the reducer function takes the current state and an action, and checks the type property of the action to determine 
+what to do. If the action is of type increment, the reducer function returns a new state object with the count property incremented by 1. 
+If the action is of type decrement, the reducer function returns a new state object with the count property decremented by 1. If the
+action type doesn't match any of the cases, it returns the same state.
+
+It's important to note that, a reducer is a pure function, it doesn't have side effects, it doesn't mutate the original state and it 
+always returns a new state object.
+
+Reducers are commonly used with libraries such as Redux, which provides a centralized store to hold the state of an application and a
+ way to update the state using actions and reducers.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                    [30]  What are actions?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In the context of Flux architecture, an action is a payload of information that describes an event that has occurred in the application.
+ Actions are dispatched by the views and are handled by the stores. They are typically plain JavaScript objects that contain information
+  about the event that has occurred, such as the type of the action, and any additional data related to the event.
+
+Actions are typically defined as constants, to avoid typos and to make it clear which actions are available in the application. 
+Here is an example of how you might define some actions for a simple counter application:
+
+Copy code
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+Actions are dispatched by the views, typically in response to a user interaction. Here is an example of how you might dispatch an 
+INCREMENT action in response to a button click:
+
+Copy code
+function Counter() {
+  const dispatch = useDispatch();
+
+  return (
+    <>
+      <p>{state.count}</p>
+      <button onClick={() => dispatch({ type: INCREMENT })}>Increment</button>
+    </>
+  );
+}
+The action is an object with a type property that describes the type of the action, and it can contain additional properties with
+ additional data related to the action. Here is an example of an action with additional data:
+
+Copy code
+const ADD_TODO = 'ADD_TODO';
+
+function addTodo(text) {
+  return {
+    type: ADD_TODO,
+    text
+  }
+}
+In this example, the action is an object with a type property equal to 'ADD_TODO' and a text property with the value passed as an 
+argument.
+
+Once an action is dispatched, it is passed through the Dispatcher and received by the store's reducer function, which updates the state
+ of the application accordingly.
+
+It's important to note that, when an action is dispatched, it is not supposed to have any side effects, it is just a plain JavaScript 
+object that describes what has happened, and it is passed to the reducer function to update the state.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                   [31]  What are side effects?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In the context of programming, side effects refer to any changes in the state or behavior of a program that are caused by a function or 
+operation, beyond the return value of that function or operation.
+
+Side effects can include things like:
+
+Modifying the value of a variable
+Changing the state of an object
+Accessing a file or network resource
+Throwing an exception
+Displaying a message to the user
+Changing the location of the web page
+Dispatching an action
+In functional programming, it is considered best practice to minimize side effects as much as possible, and to keep functions that have 
+side effects separate from functions that do not. This makes the code more predictable and easier to reason about.
+
+In React, side effects are often associated with updating the state or triggering an action. For example, when a component's state is 
+updated, this is considered a side effect. Similarly, when an action is dispatched, this is also considered a side effect.
+
+It's important to note that, in React, side effects can happen in lifecycle methods and hooks such as componentDidMount, useEffect, etc.
+ This is because these methods are executed outside of the render cycle and the returned state of the component doesn't affect the 
+ re-rendering process, but they could cause some changes in the DOM or in the browser.
+
+To handle side effects, there are Hooks like useEffect which allows you to synchronize a component with an external system in a safe way
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                 [32]  What all does a store do?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In the context of Flux architecture, a store is a central location where the state of an application is held and where the logic for 
+updating the state in response to actions is defined. A store is responsible for:
+
+Holding the state of the application: The store holds the state of the application, and provides a way to retrieve the current state.
+
+Updating the state in response to actions: The store listens for actions that are dispatched by the views, and updates the state of 
+the application in response to those actions. This is typically done using a reducer function, which takes the current state and an 
+action as arguments and returns the new state.
+
+Emitting change events: When the state of the application changes, the store emits a change event, so that the views can update to 
+reflect the new state.
+
+Providing access to the state and the logic for updating the state: The store provides an API for the views to access the state and 
+the logic for updating the state, so that the views do not have direct access to the state and cannot update the state directly.
+
+Enforcing the unidirectional flow of data: The store enforces the unidirectional flow of data in the application, by only allowing 
+updates to the state to occur in response to actions, and by emitting change events when the state changes.
+
+Isolating the state and logic of the application: By keeping the state and logic of the application in a centralized location, 
+the store helps to isolate the state and logic of the application, making it easier to reason about and test.
+
+Implementing a centralized state management: With a store you can manage the state of the entire application in one place, 
+making it easier to manage the complexity of a large application.
+
+It's important to note that, there are different implementations of stores, and they may have additional functionality, 
+but the basic principles are the same.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                 [33]  What are combine reducers?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In the context of Redux, combineReducers is a utility function that allows you to combine multiple reducer functions into a 
+single reducer function. This can be useful in larger applications where the state is managed by many different reducer functions, 
+each managing a different part of the state.
+
+combineReducers takes an object as an argument, where each key in the object represents a slice of the state, and the corresponding 
+value is a reducer function that manages that slice of the state. Here's an example of how you might use combineReducers to combine 
+multiple reducer functions:
+
+Copy code
+import { combineReducers } from 'redux';
+
+function counter(state = 0, action) {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1;
+    case 'DECREMENT':
+      return state - 1;
+    default:
+      return state;
+  }
+}
+
+function todos(state = [], action) {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return [...state, action.todo];
+    case 'REMOVE_TODO':
+      return state.filter(todo => todo.id !== action.id);
+    default:
+      return state;
+  }
+}
+
+const rootReducer = combineReducers({
+  counter,
+  todos
+});
+
+export default rootReducer;
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                            [34]  What are thunks? Why do you need them?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+In the context of Redux, a thunk is a function that wraps an expression to delay its evaluation. It allows you to write action creators 
+that return a function instead of an action. This can be useful when you need to perform some asynchronous behavior, such as making an
+API request, before dispatching an action.
+A thunk is a function that takes two arguments: dispatch and getState, and it can be used to handle async calls and dispatch actions.
+Here's an example of how you might use a thunk to handle an API call in a Redux application:
+
+Copy code
+function fetchTodos() {
+  return (dispatch) => {
+    dispatch(requestTodos());
+    return fetch('https://jsonplaceholder.typicode.com/todos')
+      .then(response => response.json())
+      .then(todos => dispatch(receiveTodos(todos)));
+  }
+}
+In this example, fetchTodos is an action creator that returns a thunk. The thunk dispatches a requestTodos action when it is first called, 
+and then makes an API request to fetch a list of todos. Once the todos are received, it dispatches a receiveTodos action with the 
+received todos.
+
+Thunks are used to handle async calls and to delay the execution of an action, it allows you to handle the flow of the async call, 
+like handling the loading state, error handling, etc. You can use them to make a request to an API and then dispatch an action with 
+the response data, or to handle complex logic before dispatching an action.
+
+Thunk is a middleware that can be added to the store, it allows you to dispatch a function instead of an action, it intercepts the 
+function and it call it with dispatch and getState as arguments. This way, you can handle async calls, complex logic or even prevent 
+the dispatch of an action.
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                     [35]  Write how you would write an api request in redux thunks?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Here's an example of how you might use a thunk to handle an API call in a Redux application using the redux-thunk middleware:
+
+Copy code
+import axios from 'axios';
+
+// Action Types
+const FETCH_USERS_REQUEST = 'FETCH_USERS_REQUEST';
+const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
+const FETCH_USERS_FAILURE = 'FETCH_USERS_FAILURE';
+
+// Action creators
+const fetchUsersRequest = () => {
+    return {
+        type: FETCH_USERS_REQUEST
+    }
+}
+
+const fetchUsersSuccess = (users) => {
+    return {
+        type: FETCH_USERS_SUCCESS,
+        payload: users
+    }
+}
+
+const fetchUsersFailure = (error) => {
+    return {
+        type: FETCH_USERS_FAILURE,
+        payload: error
+    }
+}
+
+// Thunk
+export const fetchUsers = () => {
+    return (dispatch) => {
+        // Dispatching the request action
+        dispatch(fetchUsersRequest());
+        axios.get('https://jsonplaceholder.typicode.com/users')
+            .then(response => {
+                // Dispatching the success action
+                const users = response.data;
+                dispatch(fetchUsersSuccess(users));
+            })
+            .catch(error => {
+                // Dispatching the failure action
+                const errorMsg = error.message;
+                dispatch(fetchUsersFailure(errorMsg));
+            });
+    }
+}
+In this example, fetchUsers is an action creator that returns a thunk. The thunk dispatches a fetchUsersRequest action when it is
+ first called, indicating that the API request has started. Then it uses the axios library to make a GET request to the specified API
+  endpoint.
+
+When the response from the API is received, the thunk dispatches a fetchUsersSuccess action with the received data as the payload.
+ If an error occurs during the API request, the thunk dispatches a fetchUsersFailure action with the error message as the payload.
+
+This way, you can handle the flow of the async request, like handling the loading state, error handling, etc.
+
+It's important to note that, to use thunks, you need to add the redux-thunk middleware to your store, like this:
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers';
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
+export default store;
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                 [36]  What does lazy loading mean?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Lazy loading is a technique used in computer programming to defer the initialization of an object until the point at which it is needed.
+This can improve performance by reducing the amount of memory or other resources that are consumed during the early stages of a 
+program's execution.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+-                                                     [37]  What does webpack do?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Webpack is a JavaScript module bundler. It is a tool that allows developers to take all of the various JavaScript files and dependencies 
+in their application, and bundle them together into a single file (or a few smaller files) that can be loaded by the browser.
+
+Webpack works by taking in all of your application's JavaScript files, analyzing their dependencies (e.g. import or require statements),
+ and then generating a bundle that includes all of the necessary code. It can also be configured to perform tasks such as transpiling
+  code with Babel, minifying the bundled code for production, and hot-reloading the application during development.
+
+Webpack also has a wide range of plugins that can be used to perform additional tasks such as optimizing images, generating CSS from
+ Sass or Less, and even running a development server for your application.
+
+In general, webpack helps developers to organize and optimize their code, making it more efficient to load and run in the browser. 
+It also allows developers to use a wide range of modern JavaScript features and tools, such as JSX and ECMAScript, and make them 
+compatible with a wide range of browsers.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                      - [38]  What does babel do?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Babel is a JavaScript compiler. It is a tool that allows developers to write JavaScript code using the latest syntax and features, 
+and then transpile (or convert) that code into a version of JavaScript that is compatible with older browsers or environments.
+
+Babel is particularly useful for working with modern JavaScript features such as ES6 classes, arrow functions, template literals, and 
+destructuring, which are not yet supported by all browsers. It can also be used to transpile JSX 
+(a syntax extension for JavaScript used by React) into JavaScript.
+
+Babel can be used in various ways, for example as a command line tool, a Node.js library, a webpack plugin, or a browser extension.
+ It can also be configured with a set of plugins and presets, which allow developers to specify which features they want to use and how 
+ they want to transpile their code.
+
+In general, Babel allows developers to use the latest and greatest JavaScript features while ensuring that their code will work on a 
+wide range of browsers and environments.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                              - [39]  Can you write react without jsx?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Yes, it is possible to write React without using JSX. JSX is a syntax extension for JavaScript that allows you to write HTML-like 
+elements in your JavaScript code. It makes it easier to create and manipulate React components, but it is not strictly necessary.
+
+Instead of using JSX, you can use React's createElement() function to create elements and components.
+
+Here's an example of how you might create a simple React component without using JSX:
+
+Copy code
+import React from 'react';
+
+class MyComponent extends React.Component {
+  render() {
+    return React.createElement('div', {className: 'my-component'},
+      React.createElement('h1', null, 'Hello, World!'),
+      React.createElement('p', null, 'This is my first React component!')
+    );
+  }
+}
+In this example, we are using React's createElement() function to create a div element with a class of my-component, an h1 
+element with the text "Hello, World!", and a p element with the text "This is my first React component!".
+
+It's important to note that JSX is more readable and easier to write, and it's the recommended way to create
+ React components, but it's not mandatory.
+
+Also, using JSX provides some benefits like better error handling, better performance and better debugging.
+
+You can also use libraries like react-hyperscript or hyperscript-helpers to write React components in a more 
+functional way, similar to JSX but without the need to use JSX.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                    ::::::::::::::::::::  IMPORTANT NOTES LINK :::::::::::::::::::::::::::
+
+                [https://satin-crabapple-c09.notion.site/What-is-Virtual-DOM-How-does-it-Work-83fd25985eee4ae3876a072fbc37c99b]
+                       (https://www.notion.so/What-is-Virtual-DOM-How-does-it-Work-83fd25985eee4ae3876a072fbc37c99b)
+

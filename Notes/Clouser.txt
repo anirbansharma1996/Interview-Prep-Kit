@@ -1,0 +1,140 @@
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                ||||||||||| IMPORTANT ES6 QUESIONS |||||||||||
+
+                               [LINK] (https://dmitripavlutin.com/javascript-closures-interview-questions/)
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                       -[1] What Are Closures?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.  
+A closure is a function that has been bundled together (enclosed) with references to its surroundings (the lexical environment). 
+In other words, a closure allows an inner function to access the scope of an outside function. Closures are formed every time a function 
+is created in JavaScript, during function creation time. 
+Here's an example of a closure in JavaScript:
+//code
+function outerFunction(x) {
+    let y = x;
+    return function innerFunction() {
+        console.log(y);
+    }
+}
+let closure = outerFunction(10);
+closure(); // logs 10
+
+In this example, innerFunction has closure over the variable y defined in the outer function. Even though the outer function has 
+completed execution, innerFunction can still access the value of y. Closures are often used to create function factories and to 
+expose methods while hiding implementation details.
+It's worth noting that Closures, being one of the more powerful and widely-used features of JavaScript, are often considered a 
+advanced feature and require a good understanding of scope and execution context. 
+--------------------------------------------------------------------------------------------------------------------------------------------   
+                                                         -[2] What Is Debouncing?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ ANS.   
+Debouncing is a technique used to limit the rate at which a function gets executed. It's commonly used in JavaScript to prevent a function
+from being called too frequently, such as when handling events like key presses or window resizes.
+When a debounced function is invoked, it doesn't execute immediately. Instead, it waits for a specified time period (the "debounce time")
+ to elapse without being called again before it actually executes. If the function is called again before the debounce time has elapsed,
+  the previous invocation is cancelled and a new debounce timer is started.
+
+Here's an example of debouncing a function that gets called on every key press:
+//code
+let input = document.getElementById('input');
+let debouncedFunction = debounce(function() {
+    console.log('searching...');
+}, 500);
+input.addEventListener('keyup', debouncedFunction);
+In this example, the debounce function is wrapping the callback function that is passed to the event listener, it returns a
+ new function that will be invoked on keyup event, the debounce time is set to 500 milliseconds so any new keyup event that 
+ happens within that 500ms will reset the timer.
+Debouncing is useful in scenarios where a function needs to be invoked in response to an event, but the rate at which the event 
+is fired is too high and would cause performance issues if the function were executed on every event. Debouncing can help reduce 
+the number of times a function is called and can improve the overall performance of the application.
+It's worth noting that there's another similar technique called Throttling, which also limits the rate at which a function can be 
+invoked, but it's executed at a fixed interval.
+--------------------------------------------------------------------------------------------------------------------------------------------   
+                                                        -[3] What Is Throttling?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+It is similar to debouncing in that it helps to reduce the number of times a function is called, 
+but it operates on a fixed interval rather than a delay after the last call.
+When a throttled function is invoked, it executes immediately. However, it will not execute again until a specified time period 
+(the "throttle interval") has elapsed since the last execution. If the function is called again before the throttle interval has elapsed,
+ the new call is ignored.
+
+Here's an example of throttling a function that gets called on every scroll event:
+//code
+let throttledFunction = throttle(function() {
+    console.log('scrolling...');
+}, 100);
+window.addEventListener('scroll', throttledFunction);
+
+In this example, the throttle function is wrapping the callback function that is passed to the event listener, it returns a new function
+ that will be invoked on scroll event, the throttle interval is set to 100 milliseconds, meaning that the function will only execute once
+  every 100ms, regardless of how many scroll events happen during that time.
+Throttling is useful in scenarios where a function needs to be invoked in response to an event, but the rate at which the event is fired
+ is too high and would cause performance issues if the function were executed on every event. Throttling can help reduce the number of
+  times a function is called and can improve the overall performance of the application.
+It's worth noting that the main difference between debouncing and throttling is that debouncing waits a specific amount of time to
+ execute the function after the last call while throttling will execute the function at a fixed interval.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                                 -[4] How to create a Toggler with closure?
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+One way to create a toggler with closure is to use a JavaScript function that returns a new function for the toggler control. 
+The inner function has closure over the state variable and can change its value each time it is called.
+
+Here's an example of a function that creates a toggler button:
+//code
+function createToggler(initialState) {
+    let state = initialState;
+    return function() {
+        state = !state;
+        return state;
+    }
+}
+let toggler = createToggler(false);
+document.getElementById("toggler").addEventListener("click", function() {
+    let state = toggler();
+    console.log(state);
+});
+In this example, the createToggler function takes an initial state as an argument and returns a new function that toggles the state
+ variable when called. The returned function has closure over the state variable, so it can maintain its state even after the outer
+  function has returned.
+This example is using a button with an id of "toggler", it also attach an event listener to it, when it's clicked the toggler function 
+is invoked, the state is toggled, and the current state is printed to the console.
+It's worth noting that you can use this closure function in many different scenarios. For example, you could change the text of a 
+heading element or an image source based on the current state, or you could use it as part of a navigation bar or an accordion to
+ toggle the visibility of certain elements.
+--------------------------------------------------------------------------------------------------------------------------------------------
+                                      -[5] setTimeout closure scope example ( Amazon interview question )
+--------------------------------------------------------------------------------------------------------------------------------------------
+ANS.
+Here's an example of how closures can interact with setTimeout in JavaScript:
+
+Copy code
+for (let i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log(i);
+    }, 1000);
+}
+In this example, a for loop is used to initiate 5 setTimeout functions, each with a callback that logs the current value of i. However,
+since the setTimeout callbacks are invoked after the for loop has completed, the value of i is the final value it had when the for loop
+completed, which is 5 for this example.
+To fix this behavior, we can use IIFE (Immediately Invoked Function Expression) to make a copy of variable in each iteration and pass 
+that variable to setTimeout
+Copy code
+for (let i = 0; i < 5; i++) {
+    (function(i) {
+        setTimeout(function() {
+            console.log(i);
+        }, 1000);
+    })(i);
+}
+Now, the code will log 0,1,2,3,4 as the output.
+This is an example of how closures interact with setTimeout. The callback function inside the setTimeout has access to the variables 
+in its enclosing scope, in this case the variable i which is defined in the outer function (the for loop). However, since the setTimeout
+ callback is executed asynchronously, after the for loop has completed, it has access to the final value of i rather than the value of i
+  for each iteration of the loop.
+This type of question is common in JavaScript interview as JavaScript closure and Asynchronous behavior is an important feature of the 
+language. Understanding closures and how they interact with other parts of JavaScript is a fundamental part of becoming a proficient 
+JavaScript developer.
+--------------------------------------------------------------------------------------------------------------------------------------------
