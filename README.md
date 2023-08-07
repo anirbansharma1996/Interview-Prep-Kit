@@ -1,6 +1,6 @@
 # Full Stack Web Development MERN Interview Preparation - Theoretical Notes
 
-![MERN Stack](https://blog.shiftasia.com/content/images/2022/05/mern-stack.jpg?w=1000)
+![MERN Stack](https://gaper.io/wp-content/uploads/2022/02/mern-stack.webp)
 
 Welcome to the Full Stack Web Development MERN (MongoDB, Express.js, React, Node.js) Interview Preparation Theoretical Notes repository for freshers! This collection of notes is designed to help you solidify your understanding of the MERN stack concepts and prepare effectively for your upcoming interviews. Whether you're new to web development or looking to refresh your knowledge, these notes will serve as a valuable resource.
 
