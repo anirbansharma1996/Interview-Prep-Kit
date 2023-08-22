@@ -142,3 +142,140 @@ function compressString(str) {
   
   return compressed.length < str.length ? compressed : str;
 }
+
+//11.Longest Palindromic Substring:Find the longest palindromic substring within a given string.
+
+function longestPalindrome(s) {
+  let longest = '';
+
+  for (let i = 0; i < s.length; i++) {
+    for (let j = i + 1; j <= s.length; j++) {
+      const substring = s.slice(i, j);
+      if (isPalindrome(substring) && substring.length > longest.length) {
+        longest = substring;
+      }
+    }
+  }
+
+  return longest;
+}
+
+function isPalindrome(str) {
+  const reversed = str.split('').reverse().join('');
+  return str === reversed;
+}
+
+
+//12. Longest Substring Without Repeating Characters:Find the length of the longest substring without repeating characters.
+
+function lengthOfLongestSubstring(s) {
+  let maxLen = 0;
+  for (let i = 0; i < s.length; i++) {
+    const set = new Set();
+    let len = 0;
+    for (let j = i; j < s.length; j++) {
+      if (!set.has(s[j])) {
+        set.add(s[j]);
+        len++;
+        maxLen = Math.max(maxLen, len);
+      } else {
+        break;
+      }
+    }
+  }
+  return maxLen;
+}
+
+//13. Valid Palindrome:Determine if a given string is a palindrome, considering only alphanumeric characters and ignoring cases.
+
+function isPalindrome(str) {
+  const cleanStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  const reversedStr = cleanStr.split('').reverse().join('');
+  return cleanStr === reversedStr;
+}
+
+//14. Group Anagrams:Given an array of strings, group anagrams together.
+
+function groupAnagrams(strs) {
+  const map = {};
+  for (const str of strs) {
+    const sortedStr = str.split('').sort().join('');
+    if (!map[sortedStr]) {
+      map[sortedStr] = [];
+    }
+    map[sortedStr].push(str);
+  }
+  return Object.values(map);
+}
+
+//15. Implement Hash Map: Design a simple hash map class that supports put, get, and remove operations.
+
+class HashMap {
+  constructor() {
+    this.map = {};
+  }
+
+  put(key, value) {
+    this.map[key] = value;
+  }
+
+  get(key) {
+    return this.map[key];
+  }
+
+  remove(key) {
+    delete this.map[key];
+  }
+}
+
+//16. 3Sum : Given an array of integers, find all unique triplets that sum up to zero.
+
+function threeSum(nums) {
+  const result = [];
+  nums.sort((a, b) => a - b);
+
+  for (let i = 0; i < nums.length - 2; i++) {
+    if (i === 0 || (i > 0 && nums[i] !== nums[i - 1])) {
+      for (let j = i + 1; j < nums.length - 1; j++) {
+        if (j === i + 1 || (j > i + 1 && nums[j] !== nums[j - 1])) {
+          for (let k = j + 1; k < nums.length; k++) {
+            if (k === j + 1 || (k > j + 1 && nums[k] !== nums[k - 1])) {
+              if (nums[i] + nums[j] + nums[k] === 0) {
+                result.push([nums[i], nums[j], nums[k]]);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return result;
+}
+
+//17.Two Sum:Given an array of integers, find two numbers that add up to a specific target.
+
+
+function twoSum(nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target) {
+        return [i, j];
+      }
+    }
+  }
+  return [];
+}
+
+//18.Container With Most Water: Given an array of non-negative integers representing vertical lines, determine the container with the most water that can be held between any two lines.
+
+function maxArea(height) {
+  let max = 0;
+  for (let i = 0; i < height.length; i++) {
+    for (let j = i + 1; j < height.length; j++) {
+      const area = Math.min(height[i], height[j]) * (j - i);
+      max = Math.max(max, area);
+    }
+  }
+  return max;
+}
