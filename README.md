@@ -1,4 +1,4 @@
-# Full Stack Web Development MERN Interview Preparation - Theoretical Notes
+# Full Stack Web Development MERN Interview Preparation - Theoretical Notes & DSA
 
 ![MERN Stack](https://gaper.io/wp-content/uploads/2022/02/mern-stack.webp)
 
